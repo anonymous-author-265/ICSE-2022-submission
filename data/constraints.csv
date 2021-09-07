@@ -1,0 +1,1512 @@
+Project,ID,File/Section,Context,Text,Interpreted Constraint,Operands,Enforcing Statement,Enforcing Statement CIP,Constraint Type,Data Set
+apache-ant-1.10.6,ANT-1,targets.html.txt,"In the first example, if the module-A-present property is set (to any value, e.g. false), the target will be run. In the second example, if the module-A-present property is set (again, to any value), the target will not be run.",the module-A-present property is set,has If.property,"property, set",src/main/org/apache/tools/ant/PropertyHelper.java:1169,null-empty-check,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-10,targets.html.txt,"Targets without such a description are deemed internal and will not be listed, unless either the -verbose or -debug option is used.",option is used.,if -verbose used,"-verbose option, used",org/apache/tools/ant/Main.java:333,binary-comparison,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-11,running.html.txt,ant.XmlLogger.stylesheet.uri | filename (default log.xsl),default log.xsl),default ant.XmlLogger.stylesheet.uri = log.xsl,"ant.XmlLogger.stylesheet.uri, log.xsl",org/apache/tools/ant/XmlLogger.java:180,constant-argument,concrete-value,CDS
+apache-ant-1.10.6,ANT-12,Tasks/dependset.html.txt,"The dependset task compares a set of sources with a set of target files. If any of the sources has been modified more recently than any of the target files, all of the target files are removed.","any of the sources has been modified more recently than any of the target files,",source.mod_time > target.mod_time,"sources, modified",org/apache/tools/ant/taskdefs/DependSet.java:254,binary-comparison,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-13,Tasks/dependset.html.txt,"Sources and target files are specified via nested resource collections; sources can be resources of any type, while targets are restricted to files only. At least one set of sources and one set of targets is required.",is required.,amountOfSetsSources > 0,"set sources, required",org/apache/tools/ant/taskdefs/DependSet.java:200,null-check,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-14,Tasks/unpack.html.txt,"If dest is a directory the name of the destination file is the same as src (with the .gz, .bz2 or .xz extension removed if present). If dest is omitted, the parent dir of src is taken. The file is only expanded if the source resource is newer than the destination file, or when the destination file does not exist.",dest is a directory,if dest is directory,"dest directory, is",org/apache/tools/ant/taskdefs/Unpack.java:141,boolean-property,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-15,Tasks/unpack.html.txt,"If dest is a directory the name of the destination file is the same as src (with the .gz, .bz2 or .xz extension removed if present). If dest is omitted, the parent dir of src is taken. The file is only expanded if the source resource is newer than the destination file, or when the destination file does not exist.","dest is omitted,",if dest not present,"dest, omitted",org/apache/tools/ant/taskdefs/Unpack.java:133,null-check,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-16,Tasks/javac.html.txt,defaultexcludes | Indicates whether default excludes should be used or not (yes|no).,(yes|no).,"options for javac.defaultexcludes = yes, no","defaultexcludes, yes, no",org/apache/tools/ant/Project.java:1722,equals-or-chain,categorical-value,CDS
+apache-ant-1.10.6,ANT-17,Tasks/javac.html.txt,"executable | Complete path to the javac executable to use in case of fork is yes.
+Since Ant 1.6 this attribute can also be used to specify the path to the executable when using jikes, jvc, gcj or sj.",fork is yes.,if javac.fork = yes,"fork, yes",org/apache/tools/ant/taskdefs/Javac.java:911,boolean-property,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-18,Tasks/jar.html.txt,"The update parameter controls what happens if the JAR file already exists. When set to yes, the JAR file is updated with the files specified. When set to no (the default) the JAR file is overwritten. An example use of this is provided in the Zip task documentation. Please note that ZIP files store file modification times with a granularity of 2 seconds. If a file is less than 2 seconds newer than the entry in the archive, Ant will not consider it newer.","set to yes,",if jar.update = yes,"update, yes",org/apache/tools/ant/taskdefs/Zip.java:729,boolean-property,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-19,Tasks/jar.html.txt,"If the manifest is omitted, a simple one will be supplied by Apache Ant.","the manifest is omitted,",if manifest is not present,"manifest, omitted",org/apache/tools/ant/taskdefs/Jar.java:491,boolean-property,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-2,targets.html.txt,"The optional description attribute can be used to provide a one-line description of this target, which is printed by the -projecthelp command-line option. Targets without such a description are deemed internal and will not be listed, unless either the -verbose or -debug option is used.",Targets without such a description,checks description is set,"Targets description, without",src/main/org/apache/tools/ant/Main.java:1163,null-check,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-20,Tasks/jar.html.txt,"whenmanifestonly | behavior when no files match. Valid values are fail, skip, and create. | No; defaults to create",defaults to create,default jar.whenmanifestonly = create,"whenmanifestonly, create",org/apache/tools/ant/taskdefs/Jar.java:186,assign-constant,concrete-value,CDS
+apache-ant-1.10.6,ANT-21,Tasks/java.html.txt,jar | the location of the jar file to execute (must have a Main-Class entry in the manifest). fork must be set to true if this option is selected. See notes below for more details.,fork must be set to true,if java.fork = true,"fork, true",org/apache/tools/ant/taskdefs/Java.java:149,boolean-property,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-22,Tasks/java.html.txt,fork | if enabled triggers the class execution in another JVM.,fork if enabled,if java.fork = true,"fork, enabled",org/apache/tools/ant/taskdefs/Java.java:223,boolean-property,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-23,clonevm.html.txt,"If the value of the property is true, then all system properties of the forked JVM will be the same as those of the JVM running Ant. In addition, if you set ant.build.clonevm to true and build.sysclasspath has not been set, the bootclasspath of forked JVMs gets constructed as if build.sysclasspath had the value last.","the value of the property is true,",junit.clonevm = true,"clonevm, true",org/apache/tools/ant/types/CommandlineJava.java:517,boolean-property,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-24,sysclasspath.html.txt,"Since Ant 1.7 the value of this property also affects the bootclasspath settings—it combines the bootclasspath that has been specified for a task with the bootclasspath of the JVM running Ant. If the property has not been set, it defaults to ignore in this case.",defaults to ignore,default build.sysclasspath = ignore,"build.sysclasspath, ignore",org/apache/tools/ant/taskdefs/Javadoc.java:2086,constant-argument,concrete-value,CDS
+apache-ant-1.10.6,ANT-25,sysclasspath.html.txt,"The values and their meanings are:
+value meaning
+only Only the system classpath is used and classpaths specified in build files, etc are ignored. This situation could be considered as the person running the build file knows more about the environment than the person writing the build file.
+ignore The system classpath is ignored. This situation is the reverse of the above. The person running the build trusts the build file writer to get the build file right. This mode is recommended for portable scripts.
+last The classpath is concatenated to any specified classpaths at the end. This is a compromise, where the build file writer has priority.
+first Any specified classpaths are concatenated to the system classpath. This is the other form of compromise where the build runner has priority.","only Only the system classpath is used and classpaths specified in build files, etc are ignored. This situation could be considered as the person running the build file knows more about the environment than the person writing the build file. ignore The system classpath is ignored. This situation is the reverse of the above. The person running the build trusts the build file writer to get the build file right. This mode is recommended for portable scripts. last The classpath is concatenated to any specified classpaths at the end. This is a compromise, where the build file writer has priority. first Any specified classpaths are concatenated to the system classpath. This is the other form of compromise where the build runner has priority.","options for build.sysclasspath are only, ignore, last, first","build.sysclasspath, only, ignore, last",org/apache/tools/ant/types/Path.java:565-587,if-chain,categorical-value,CDS
+apache-ant-1.10.6,ANT-26,Types/dirset.html.txt,"erroronmissingdir | Specify what happens if the base directory does not exist. If true a build error will happen, if false, the dirset will be ignored/empty. Since Apache Ant 1.7.1 | No; defaults to true (for backward compatibility reasons)",If true,if dirset.erroronmissingdir = true,"dirset.erroronmissingdir, true",org/apache/tools/ant/types/AbstractFileSet.java:511,boolean-property,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-27,Types/dirset.html.txt,"erroronmissingdir | Specify what happens if the base directory does not exist. If true a build error will happen, if false, the dirset will be ignored/empty. Since Apache Ant 1.7.1 | No; defaults to true (for backward compatibility reasons)",defaults to true,default dirset.erroronmissingdir = true,"dirset.erroronmissingdir, true",org/apache/tools/ant/types/AbstractFileSet.java:80,assign-constant,concrete-value,CDS
+apache-ant-1.10.6,ANT-3,properties.html.txt,"Since Ant 1.8.0, you may instead use property expansion; a value of true (or on or yes) will enable the item, while false (or off or no) will disable it. Other values are still assumed to be property names and so the item is enabled only if the named property is defined.",true (or on or yes),"Property.value options are: yes, true, on","property, true, on, yes","src/main/org/apache/tools/ant/Project.java:1722,1723,1724",equals-or-chain,categorical-value,CDS
+apache-ant-1.10.6,ANT-4,properties.html.txt,"Since Ant 1.8.0, you may instead use property expansion; a value of true (or on or yes) will enable the item, while false (or off or no) will disable it. Other values are still assumed to be property names and so the item is enabled only if the named property is defined.",false (or off or no),"Property.value options are: no, false, off","property, false, off, no","src/main/org/apache/tools/ant/PropertyHelper.java:1152,1153,1154",equals-or-chain,categorical-value,CDS
+apache-ant-1.10.6,ANT-5,using.html.txt,"A project can have a set of tokens that might be automatically expanded if found when a file is copied, when the filtering-copy behavior is selected in the tasks that support this. These might be set in the buildfile by the filter task.",the filtering-copy behavior is selected,checks filter copy enabled,"filtering-copy behavior, selected",src/main/org/apache/tools/ant/taskdefs/Copy.java:875,boolean-property,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-6,using.html.txt,"A project has three attributes:
+...
+default | the default target to use when no target is supplied.",no target is supplied.,if target is not present,"target, supplied",org/apache/tools/ant/Main.java:824,boolean-property,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-7,using.html.txt,"By default a path-like structure will re-evaluate all nested resource collections whenever it is used, which may lead to unnecessary re-scanning of the filesystem. Since Ant 1.8.0, path has an optional cache attribute, if it is set to true, the path instance will only scan its nested resource collections once and assume it doesn't change during the build anymore (the default for cache still is false). Even if you are using the path only in a single task it may improve overall performance to set cache to true if you are using complex nested constructs.","cache attribute, if it is set to true,",Path.cache = true,"cache, true",org/apache/tools/ant/types/resources/BaseResourceCollectionContainer.java:256,boolean-property,dual-value-comparison,CDS
+apache-ant-1.10.6,ANT-8,using.html.txt,"By default a path-like structure will re-evaluate all nested resource collections whenever it is used, which may lead to unnecessary re-scanning of the filesystem. Since Ant 1.8.0, path has an optional cache attribute, if it is set to true, the path instance will only scan its nested resource collections once and assume it doesn't change during the build anymore (the default for cache still is false). Even if you are using the path only in a single task it may improve overall performance to set cache to true if you are using complex nested constructs.",default for cache still is false),default Path.cache = false,"cache, false",org/apache/tools/ant/types/Path.java:150,assign-constant,concrete-value,CDS
+apache-ant-1.10.6,ANT-9,running.html.txt,"When no arguments are specified, Ant looks for a build.xml file in the current directory and, if found, uses that file as the build file and runs the target specified in the default attribute of the <project> tag. To make Ant use a build file other than build.xml, use the command-line option -buildfile file, where file is the name of the build file you want to use (or a directory containing a build.xml file).","if found,",if build.xml found,"build.xml, found",org/apache/tools/ant/Main.java:470,boolean-property,dual-value-comparison,CDS
+checkstyle-8.35,CHK-1,config_coding_txt.html.json,"ntinue
+statement.
+
+
+The check honors special comments to suppress the warning.
+By default the texts
+""fallthru"", ""fall thru"", ""fall-thru"",
+""fallthrough"", ""fall through"", ""fall-through""
+""fallsthrough"", ""falls through"", ""falls-through"" (case sensitive).
+The comment containing these words must be all on one line,
+and must be on the last non-empty line","""fallthru"", ""fall thru"", ""fall-thru"",
+""fallthrough"", ""fall through"", ""fall-through""
+""fallsthrough"", ""falls through"", ""falls-through"" (case sensitive).","Options for comment text are ""fallthru"", ""fall thru"", ""fall-thru"", ""fallthrough"", ""fall through"", ""fall-through"", ""fallsthrough"", ""falls through"", ""falls-through""","comment text, fallthru, fall thru, fall-thru, fallthrough, fall through, fall-through, fallsthrough, falls through, falls-through",com/puppycrawl/tools/checkstyle/checks/coding/FallThroughCheck.java:464,boolean-property,categorical-value,VDS
+checkstyle-8.35,CHK-10,config_filters_txt.html.json,"document in a file. If there is no configured
+suppressions file or the optional is set to true and
+suppressions file was not found the Filter accepts all audit events.
+
+
+Properties
+
+name
+description
+type
+default value
+since
+
+file",suppressions file was not found,Checks that the suppressions file was found,"suppressions file, not found",com/puppycrawl/tools/checkstyle/filters/SuppressionFilter.java:266,boolean-property,dual-value-comparison,VDS
+checkstyle-8.35,CHK-11,config_filters_txt.html.json,". If
+optional is set to false the file must exist, or else
+it ends with error. On the other hand if optional is
+true and file is not found, the filter accept all
+audit events.
+
+boolean
+false
+6.15
+
+Notes
+
+A suppressio","optional is
+true",Checks that optional is set to true,"optional, true",com/puppycrawl/tools/checkstyle/filters/SuppressionFilter.java:265,boolean-property,dual-value-comparison,VDS
+checkstyle-8.35,CHK-12,config_annotation_txt.html.json,"ated on separate line from target
+element. This check also verifies that the annotations are on the same indenting level as
+the annotated element if they are not on the same line.
+
+
+Attention: Elements that cannot have JavaDoc comments like loca","same indenting level as
+the annotated element",Check that the annotation is on the same indenting level as the annotated element,"annotation, in same indenting level",com/puppycrawl/tools/checkstyle/checks/annotation/AnnotationLocationCheck.java:360,binary-comparison,dual-value-comparison,VDS
+checkstyle-8.35,CHK-13,config_blocks_txt.html.json,"tchBlock
+
+Since Checkstyle 6.4
+
+Description
+
+Checks for empty catch blocks.
+By default check allows empty catch block with any comment inside.
+
+
+Notes
+
+There are two options to make validation more precise: exceptionVariableName and
+commentF",empty catch block with any comment inside.,Checks that the catch block has a comment inside,"empty catch block, has any comment inside",com/puppycrawl/tools/checkstyle/checks/blocks/EmptyCatchBlockCheck.java:314,binary-comparison,dual-value-comparison,VDS
+checkstyle-8.35,CHK-14,config_imports_txt.html.json,"the current file/subpackage
+then the Check returns the first ""allowed"" or ""disallowed"" message.
+If there is no matching allow/disallow rule inside the current file/subpackage
+then it continues checking in the parent subpackage.
+If there is",there is no matching allow/disallow rule,Checks that there is no matching allow/disallow rule in the current file,"matching allow/disallow rule, no",com/puppycrawl/tools/checkstyle/checks/imports/AbstractImportControl.java:108,binary-comparison,dual-value-comparison,VDS
+checkstyle-8.35,CHK-15,config_imports_txt.html.json,"perties for match will be used.
+
+String[]
+sun
+3.0
+
+illegalClasses
+Specify class names to reject, if regexp property is not set, checks if
+import equals class name. If regexp property is set, then list of class names
+will be in","regexp property is not set,",Checks that regexp property is not set,"regexp, not set",com/puppycrawl/tools/checkstyle/checks/imports/IllegalImportCheck.java:457,boolean-property,dual-value-comparison,VDS
+checkstyle-8.35,CHK-16,config_coding_txt.html.json,"ase sensitive).
+The comment containing these words must be all on one line,
+and must be on the last non-empty line before the
+case triggering the warning or on
+the same line before the case
+(ugly, but possible).",non-empty line,Checks that the line is not empty.,"line, non-empty",com/puppycrawl/tools/checkstyle/checks/coding/FallThroughCheck.java:442,boolean-property,dual-value-comparison,VDS
+checkstyle-8.35,CHK-17,anttask_txt.html.json,"nerate. The valid values are:
+
+plain - specifies the 
+DefaultLogger
+
+xml - specifies the XMLLogger
+
+Defaults to ""plain"".
+
+No
+
+toFile
+
+The file to write output to. Defaults to standard output. Note,
+there is no way to exp","Defaults to ""plain"".",Sets default value of type to plain,"type, plain",com/puppycrawl/tools/checkstyle/ant/CheckstyleAntTask.java:673,null-check,concrete-value,VDS
+checkstyle-8.35,CHK-18,config_annotation_txt.html.json,"nnotations
+Allow annotation(s) to be located on the same line as target element.
+boolean
+false
+6.0
+
+allowSamelineSingleParameterlessAnnotation
+Allow single parameterless annotation to be located on the same line as
+target element.
+boolean
+true
+6.1
+
+allowSamelineParameterizedAnnotation
+Allow one and only parameterized annotation to be located","allowSamelineSingleParameterlessAnnotation
+Allow single parameterless annotation to be located on the same line as
+target element.
+boolean
+true",Sets default value of allowSamelineSingleParameterlessAnnotation to true,"allowSamelineSingleParameterlessAnnotation, true",com/puppycrawl/tools/checkstyle/checks/annotation/AnnotationLocationCheck.java:239,assign-constant,concrete-value,VDS
+checkstyle-8.35,CHK-19,config_coding_txt.html.json,".lang.Throwable
+
+4.0
+
+ignoredMethodNames
+Specify names of methods to ignore.
+String[]
+finalize
+5.4
+
+ignoreOverriddenMethods
+
+allow to ignore checking overridden methods (marked with Override
+or java.lang.Override annotation).
+
+boolean
+true
+6.4
+
+Examples
+
+To configure the check:
+
+
+<module name=""IllegalThrows""/>
+
+
+To configure the check re","ignoreOverriddenMethods
+
+allow to ignore checking overridden methods (marked with Override
+or java.lang.Override annotation).
+
+boolean
+true",Sets default value of ignoreOverriddenMethods to true,"ignoreOverriddenMethods, true",com/puppycrawl/tools/checkstyle/checks/coding/IllegalThrowsCheck.java:127,assign-constant,concrete-value,VDS
+checkstyle-8.35,CHK-2,config_blocks_txt.html.json,"eets variable name matching specified value - empty block is suppressed.
+
+Pattern
+""^$"" (empty)
+6.4
+
+commentFormat
+
+Specify the RegExp for the first comment inside empty catch block.
+If check meets comment inside empty catch block matching specified format - empty
+block is suppressed. If it is multi-line comment - only its first line is analyzed.
+
+Pattern
+"".*""
+6.4
+
+Examples
+
+To configure the check to suppress empty catch block if exception's variable name is","commentFormat
+
+Specify the RegExp for the first comment inside empty catch block.
+If check meets comment inside empty catch block matching specified format - empty
+block is suppressed. If it is multi-line comment - only its first line is analyzed.
+
+Pattern
+"".*""",Checks that the comment is a multi-line comment,"comment, is multi-line",com/puppycrawl/tools/checkstyle/checks/blocks/EmptyCatchBlockCheck.java:273,binary-comparison,dual-value-comparison,VDS
+checkstyle-8.35,CHK-3,anttask_txt.html.json,"file.
+
+No
+
+failOnViolation
+
+Specifies whether the build will continue even if there are
+violations. Defaults to ""true"".
+
+No
+
+failureProperty
+The name of a property to set in the event of a violation.
+No
+
+maxErrors
+
+The","Defaults to ""true"".",Sets default value of failOnViolation to true,"failOnViolation, true",com/puppycrawl/tools/checkstyle/ant/CheckStyleAntTask.java:98,assign-constant,concrete-value,VDS
+checkstyle-8.35,CHK-4,config_annotation_txt.html.json,"heck also verifies that the annotations are on the same indenting level as
+the annotated element if they are not on the same line.
+
+
+Attention: Elements that cannot have JavaDoc comments like local variables are not in the
+scope",they are not on the same line.,Checks that the annotation and the annotated element are not on the same line,"annotation and annotated element, are not on same line",com/puppycrawl/tools/checkstyle/checks/annotation/AnnotationLocationCheck.java:444,binary-comparison,dual-value-comparison,VDS
+checkstyle-8.35,CHK-5,config_filters_txt.html.json,"property
+severity. If acceptOnMatch
+is false, then the filter
+accepts an audit event if and only if there is not a match
+between the event's severity level and property severity.
+
+boolean
+true
+3.2
+
+Examples
+
+For example, the following configuration fragment directs the
+Checker","there is not a match
+between the event's severity level and property severity.",Checks that the annotation and the event severity and property severity are not the same,"event's severity level, property severity",com/puppycrawl/tools/checkstyle/filters/SeverityMatchFilter.java:113,binary-comparison,value-comparison,VDS
+checkstyle-8.35,CHK-6,anttask_txt.html.json,"No
+
+failureProperty
+The name of a property to set in the event of a violation.
+No
+
+maxErrors
+
+The maximum number of errors that are tolerated before
+breaking the build or setting the failure property. Defaults
+to ""0"".
+
+No",maximum number of errors,Checks that the number of errors is less than maxErrors,"number of errors, maxErrors",com/puppycrawl/tools/checkstyle/ant/CheckstyleAntTask.java:374,binary-comparison,value-comparison,VDS
+checkstyle-8.35,CHK-7,config_blocks_txt.html.json,"There are two options to make validation more precise: exceptionVariableName and
+commentFormat.
+If both options are specified - they are applied by any of them is matching.
+
+
+Properties
+
+name
+description
+type
+default value
+si",both options are specified,Checks that both options (exceptionVariableName and commentFormat) are specified,"both options, specified",com/puppycrawl/tools/checkstyle/checks/blocks/EmptyCatchBlockCheck.java:300,binary-comparison,dual-value-comparison,VDS
+checkstyle-8.35,CHK-8,config_imports_txt.html.json,"groups of import declarations appear in the order specified
+by the user. If there is an import but its group is not specified in the
+configuration such an import should be placed at the end of the import list.
+
+
+Rule Description
+
+The rule consist","its group is not specified in the
+configuration",Check that the import’s group is not specified in the configuration,"import group, not specified",com/puppycrawl/tools/checkstyle/checks/imports/CustomImportOrderCheck.java:618,boolean-property,dual-value-comparison,VDS
+checkstyle-8.35,CHK-9,config_annotation_txt.html.json,"Parent Module
+
+TreeWalker 
+
+PackageAnnotation
+
+Since Checkstyle 5.0
+
+Description
+
+Checks that all package annotations are in the package-info.java file.
+
+
+For Java SE8 and above, placement of package annotations in the package-info.java
+file is enforc",package annotations are in the package-info.java file.,Checks that the annotation is in the package-info.java file,"package annotation, is in package-info.java",com/puppycrawl/tools/checkstyle/checks/annotation/PackageAnnotationCheck.java:112,boolean-property,dual-value-comparison,VDS
+guava-28.0,GUA-1,UsingAndAvoidingNullExplained.md.txt,"Each of these are static methods on Optional.
+...
+Optional.of(T) | Make an Optional containing the given non-null value, or fail fast on null.","the given non-null value,",Checks that the argument is non-null,value. is non-null,guava/src/com/google/common/base/Preconditions.java:877,null-check,dual-value-comparison,CDS
+guava-28.0,GUA-2,PreconditionsExplained.md.txt,checkArgument(boolean) | Checks that the boolean is true. Use for validating arguments to methods.,the `boolean` is `true`.,Checks that the argument is true,"boolean, true",guava/src/com/google/common/base/Preconditions.java:127,boolean-property,dual-value-comparison,CDS
+guava-28.0,GUA-3,PreconditionsExplained.md.txt,"checkNotNull(T) | Checks that the value is not null. Returns the value directly, so you can use checkNotNull(value) inline.",the value is not null.,Checks that the argument is non-null,"value, null",guava/src/com/google/common/base/Preconditions.java:877,null-check,dual-value-comparison,CDS
+guava-28.0,GUA-4,PreconditionsExplained.md.txt,"checkElementIndex(int index, int size) | Checks that index is a valid element index into a list, string, or array with the specified size. An element index may range from 0 inclusive to size exclusive. You don't pass the list, string, or array directly; you just pass its size.
+Returns index.",to `size` **exclusive**.,Checks that index < size,"index, size",guava/src/com/google/common/base/Preconditions.java:1342,binary-comparison,value-comparison,CDS
+guava-28.0,GUA-5,PreconditionsExplained.md.txt,"checkPositionIndex(int index, int size) | Checks that index is a valid position index into a list, string, or array with the specified size. A position index may range from 0 inclusive to size inclusive. You don't pass the list, string, or array directly; you just pass its size.
+Returns index.",to `size` **inclusive**.,Checks that index <= size,"position, size",guava/src/com/google/common/base/Preconditions.java:1387,binary-comparison,value-comparison,CDS
+guava-28.0,GUA-6,CollectionUtilitiesExplained.md.txt,"getFirst(Iterable, T default) | Returns the first element of the iterable, or the default value if empty.",if empty.,Checks that the iterable is empty,"Iterable, empty",guava/src/com/google/common/collect/Iterators.java:845,boolean-property,dual-value-comparison,CDS
+guava-28.0,GUA-7,CollectionUtilitiesExplained.md.txt,getOnlyElement(Iterable) | Returns the only element in Iterable. Fails fast if the iterable is empty or has multiple elements.,has multiple elements.,Checks that iterable has multiple elements,"Iterable multiple elements, has",guava/src/com/google/common/collect/Iterators.java:302,boolean-property,dual-value-comparison,CDS
+guava-28.0,GUA-8,CollectionUtilitiesExplained.md.txt,"containsOccurrences(Multiset sup, Multiset sub) | Returns true if sub.count(o) <= super.count(o) for all o.",sub.count(o) <= super.count(o)`,Checks that sub.count(o) <= super.count(o),"sub count, super count",guava/src/com/google/common/collect/Multisets.java:686,binary-comparison,value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-1,httpcore-tutorial.txt,All HTTP messages must include the protocol version,HTTP messages must include the protocol version.,Checks that Message.protocolVersion is not null/empty,"HTTP messages protocol version, contain",httpcomponents-client-4.5.9/httpclient/src/main/java/org/apache/http/impl/conn/DefaultHttpResponseParser.java:144,boolean-property,dual-value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-10,httpcore-tutorial.txt,"The peer can indicate whether it intends to re-use the connection
+on the opposite side by sending Keep-Alive or Close values in the Connection header.",sending Keep-Alive,if Keep-Alive is present,"Keep-Alive, sending",org/apache/http/message/BasicListHeaderIterator.java:132,binary-comparison,dual-value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-11,httpcore-tutorial.txt,"By default the pool allows only 20 concurrent connections in total and two concurrent connections
+per a unique route.",the pool allows only 20 concurrent connections,concurrentConnections = 20,"pool concurrent connections, 20",org/apache/http/impl/pool/BasicConnPool.java:58,constant-argument,concrete-value,CDS
+apache-httpcomponents-4.5.9,HCO-12,httpcore-tutorial.txt,"Upon receiving an incoming request the HttpAsyncService verifies the message for compliance
+with the server expectations using
+HttpAsyncExpectationVerifier , if provided, and
+then
+HttpAsyncRequestHandlerResolver is used to resolve the request URI to a particular
+HttpAsyncRequestHandler intended to handle the request with the given URI.","HttpAsyncExpectationVerifier, if provided,",HttpAsyncExpectationVerifier is present,"HttpAsyncExpectationVerifier, provided",org/apache/http/nio/protocol/HttpAsyncService.java:355,null-check,dual-value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-13,Hypertext Transfer Protocol -- HTTP_1.0.html.txt,Servers should return the status code 501 (not implemented) if the method is unrecognized or not implemented.,the method is unrecognized,if method is unrecognized,"method, unrecognized",org/apache/http/protocol/HttpService.java:436,null-check,dual-value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-14,Hypertext Transfer Protocol -- HTTP_1.0.html.txt,"All responses to the HEAD request method must not include a body, even though the presence of entity header fields may lead one to believe they do.","responses to the HEAD request method must not include a body,",HEAD request.body is not present,"responses HEAD method body, not include",org/apache/http/protocol/HttpService.java:373,binary-comparison,dual-value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-15,Hypertext Transfer Protocol -- HTTP_1.0.html.txt,"For response messages, whether or not an entity body is included with a message
+is dependent on both the request method and the response code. All responses to
+the HEAD request method must not include a body, even though the presence of
+entity header fields may lead one to believe they do. All 1xx (informational),
+204 (no content), and 304 (not modified) responses must not include a body. All
+other responses must include an entity body or a Content-Length header field
+defined with a value of zero (0).",other responses must include an entity body,response is not of the 1xx kind,"responses, other",org/apache/http/protocol/HttpService.java:377,binary-comparison,dual-value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-16,Hypertext Transfer Protocol -- HTTP_1.0.html.txt,"If the media type remains unknown, the recipient should treat it as type ""application/octet-stream"".","the media type remains unknown,",if media type unknown,"media type,unknown",org/apache/http/impl/client/cache/RequestProtocolCompliance.java:199,null-check,dual-value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-17,Hypertext Transfer Protocol -- HTTP_1.0.html.txt,"If a Content-Length header field is present, its value in bytes represents the length of the Entity-Body","a Content-Length header field is present,",if Content-Length is persent,"Content-Length header field, present",org/apache/http/impl/entity/StrictContentLengthStrategy.java:103,null-check,dual-value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-18,Hypertext Transfer Protocol -- HTTP_1.0.html.txt,"The semantics of the GET method changes to a ""conditional GET"" if the request message includes an If-Modified-Since header field.",the request message includes an If-Modified-Since header field.,request.If-Modified-Since is present,"request message If-Modified-Since header field, includes",org/apache/http/impl/client/cache/CachingExec.java:430,boolean-property,dual-value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-19,Hypertext Transfer Protocol -- HTTP_1.0.html.txt,Any Content-Length greater than or equal to zero is a valid value.,Content-Length greater than or equal to zero,Content-Length >= 0,"Content-Length, 0",org/apache/http/impl/entity/StrictContentLengthStrategy.java:107,binary-comparison,value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-2,httpcore-tutorial.txt,"If the Content-Type header is available, a Header object will be returned","the Content-Type header is available,",Checks that Header.Content-Type is not null/empty,"Content-Type header, available",httpcomponents-core-4.4.11/httpcore/src/main/java/org/apache/http/impl/BHttpConnectionBase.java:237,null-check,dual-value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-20,Hypertext Transfer Protocol -- HTTP_1.0.html.txt,"All 1xx (informational), 204 (no content), and 304 (not modified) responses must not include a body.",304,Status code = 304,"304, response",org/apache/http/protocol/HttpService.java:379,binary-comparison,value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-3,httpcore-tutorial.txt,"This makes it possible to make a repeatable entity, from a non-repeatable entity. If the supplied entity
+is already repeatable, it simply passes calls through to the underlying entity.","the supplied entity is already repeatable,",Checks that the supplied entity is repeatable,"entity, repeatable",httpcomponents-core-4.4.11/httpcore/src/main/java/org/apache/http/entity/BufferedHttpEntity.java:60,boolean-property,dual-value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-4,Hypertext Transfer Protocol -- HTTP_1.0.html.txt,The default port is TCP 80,The default port is TCP 80[,Sets/Enforces default port to 80,"port, 80",httpcomponents-client-4.5.9/httpclient/src/main/java/org/apache/http/impl/conn/DefaultSchemePortResolver.java:55,return-constant,concrete-value,CDS
+apache-httpcomponents-4.5.9,HCO-5,Hypertext Transfer Protocol -- HTTP_1.0.html.txt,Recipients of header field TEXT containing octets outside the US-ASCII character set may assume that they represent ISO-8859-1 characters,header field TEXT containing octets outside the US-ASCII character set,Checks if character is outside US-ASCII,"header field TEXT, US-ASCII character set",httpcomponents-client-4.5.9/httpclient-cache/src/main/java/org/apache/http/impl/client/cache/WarningValue.java:123,binary-comparison,categorical-value,CDS
+apache-httpcomponents-4.5.9,HCO-6,Hypertext Transfer Protocol -- HTTP_1.0.html.txt,"If the port is empty or not given, port 80 is assumed",port 80 is assumed.,Sets/Enforces default port to 80,"port, 80",httpcomponents-client-4.5.9/httpclient/src/main/java/org/apache/http/conn/routing/HttpRoute.java:93,return-constant,concrete-value,CDS
+apache-httpcomponents-4.5.9,HCO-7,httpcore-tutorial.txt,"If the headers aren't available, a length of -1 will be returned, and NULL for the content
+type.","the headers aren't available,",if headers not present,"headers, available",org/apache/http/entity/BasicHttpEntity.java:56,assign-constant,dual-value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-8,httpcore-tutorial.txt,"Alternatively, a negative content length will read all data
+from the input stream, which is the same as supplying the exact content length, so use the length to
+limit the amount of data to read.",a negative content length,contentLength < 0,"content length, 0",org/apache/http/entity/InputStreamEntity.java:131,binary-comparison,value-comparison,CDS
+apache-httpcomponents-4.5.9,HCO-9,httpcore-tutorial.txt,"HTTP/1.1
+connections are persistent by default, while HTTP/1.0 connections are not.",HTTP/1.1 connections,connection.version = HTTP/1.1,"connection, HTTP/1.1",org/apache/http/ProtocolVersion.java:241,binary-comparison,value-comparison,CDS
+jabref-5.0,JAB-1,en__advanced__commandline.md,"iven import filter will be used.
+
+Use the `-h` option to get the list of available import formats.
+
+If an export option is also specified, the import will always be processed first, and the imported or loaded file will be used by the export filter. If the GUI is not suppressed \(using the `-n` option\), any imported or loaded file will show up in","If an export option is also specified, the import will always be processed first, and the imported or loaded file will be used by the export filter.",Checks that the export option is specified,"export option, specified",org/jabref/cli/ArgumentProcessor.java:218,boolean-property,dual-value-comparison,VDS
+jabref-5.0,JAB-10,en__cite__openofficeintegration.md,"for the headline of the reference list. This format must be defined in your OpenOffice document. |
+| Title | string | `Bibliography` | The text to enter as the headline of the reference list. |
+
+### Citation properties
+
+The **CITATION",| Title | string | `Bibliography` |,Sets default value of “Title” to “Bibliography”,"Title, Bibliography",org/jabref/logic/openoffice/OOBibStyle.java:152,constant-argument,concrete-value,VDS
+jabref-5.0,JAB-11,en__cite__openofficeintegration.md,"er | `3` | The maximum number of authors to list in a citation when appearing for the first time. |
+| MinimumGroupingCount | integer | `3` | The minimum number of consecutive entries a citation should contain before the numbers are grouped,",| MinimumGroupingCount | integer | `3` |,Sets default value of MinimumGroupingCount to 3,"MinimumGroupingCount, 3",org/jabref/logic/openoffice/OOBibStyle.java:177,constant-argument,concrete-value,VDS
+jabref-5.0,JAB-12,en__collaborative-work__export__customexports.md,"filter \(which will be the suggested extension in the file dialog when you use the export filter\). Note that if you intend to use the custom export filter also for ""Copy...-&gt;Export to Clipboard"" in the maintable, the extension must be one of the following: `txt`, `rtf`, `rdf`, `xml`, `html`, `htm`, `csv`, or `ris`.
+
+## Creating the export filter
+
+To see examples of how export filters are made, look for the packag","Note that if you intend to use the custom export filter also for ""Copy...-&gt;Export to Clipboard"" in the maintable, the extension must be one of the following: `txt`, `rtf`, `rdf`, `xml`, `html`, `htm`, `csv`, or `ris`.","Checks that exporter extension is one of `txt`, `rtf`, `rdf`, `xml`, `html`, `htm`, `csv`, or `ris`","exporter extension, txt, rtf, rdf, xml, html, htm, csv, ris",org/jabref/gui/exporter/ExportToClipboardAction.java:67,boolean-property,categorical-value,VDS
+jabref-5.0,JAB-13,en__collaborative-work__export__customexports.md,"tryTypeFormatter` : camel case of entry types, so ""inbook"" -&gt; ""InBook"".
+* `FileLink(filetype)` : if no argument is given, this formatter outputs the first external file link encoded in the field. To work, the formatter must be supplied with the contents of the ""file"" field.
+
+This formatter ta","if no argument is given, this formatter outputs the first external file link encoded in the field.",Checks that no argument was given to FileLinkType formatter,"no argument, given",org/jabref/logic/layout/format/FileLink.java:33,null-check,dual-value-comparison,VDS
+jabref-5.0,JAB-14,en__collaborative-work__export__customexports.md,"file link of the specified type. In the example, the path to the first PDF link will be output.
+
+* `FirstPage` : returns the first page from the ""pages"" field, if set. For instance, if the pages field is set to ""345-360"" or ""345--360"", this formatter will return ""34","`FirstPage` : returns the first page from the ""pages"" field, if set.",Checks that the “pages” field is set,"pages field, set",org/jabref/logic/layout/format/FirstPage.java:15,null-check,dual-value-comparison,VDS
+jabref-5.0,JAB-15,en__collaborative-work__export__customexports.md,"using `\format[JournalAbbreviator]{\journal}`, ""Physical Review Letters"" gets ""Phys. Rev. Lett.""
+* `LastPage` : returns the last page from the ""pages"" field, if set. For instance, if the pages field is set to ""345-360"" or ""345--360"", this formatter will return ""360","`LastPage` : returns the last page from the ""pages"" field, if set.",Checks that the “pages” field is set,"pagesfield, set",org/jabref/logic/layout/format/LastPage.java:15,null-check,dual-value-comparison,VDS
+jabref-5.0,JAB-16,en__collaborative-work__export__customexports.md,"t initial is shown.
+* `MiddleInitial` : first name is shown, but all middle names are abbreviated.
+
+`AuthorPunc = [ {FullPunc} | NoPunc | NoComma | NoPeriod ]` 
+specifies the punctuation used in the author list when `AuthorAbbr` is used
+
+* `FullPunc` : no chan",`AuthorPunc = [ {FullPunc} | NoPunc | NoComma | NoPeriod ]`,"Checks that AuthorPunc is one of {FullPunc, NoPunc, NoComma, NoPeriod} as opposed to any other value","AuthorPunc, FullPunc, NoPunc, NoComma, NoPeriod","org/jabref/logic/layout/format/Authors.java:145,148,151,154",if-chain,categorical-value,VDS
+jabref-5.0,JAB-17,en__collaborative-work__export__customexports.md,"tring`.
+
+`AuthorNumber = [ {inf} | <integer> ]` 
+specifies the number of authors that are printed. If the number of authors exceeds the maximum specified, the authorlist is replaced by the first author \(or any number specified by `AuthorNumberEtAl`\), followed by `EtAlString`.
+
+`AuthorNumberEtAl = [ {1} | <integer> ]` 
+specifies the number of authors that are printed if the t","If the number of authors exceeds the maximum specified, the authorlist is replaced by the first author \(or any number specified by `AuthorNumberEtAl`\), followed by `EtAlString`.
+
+`",Checks that the number of authors is greater than the value of “AuthorNumber”,"number of authors, AuthorNumber",org/jabref/logic/layout/format/Authors.java:235,binary-comparison,value-comparison,VDS
+jabref-5.0,JAB-18,en__collaborative-work__sqldatabase__README.md,"ur shared database. Then, you have to fill out the remaining fields with the according information. If you like you can save your password by clicking the **Remember password?** checkbox.
+
+### SSL configuration
+
+Since version 5.0 JabRef supports secure SSL connection to the database. Fo",If you like you can save your password by clicking the **Remember password?** checkbox.,Checks that the “Remember password” option was selected,"Remember password?, click",org/jabref/gui/shared/SharedDatabaseLoginDialogViewModel.java:209,boolean-property,dual-value-comparison,VDS
+jabref-5.0,JAB-19,en__collaborative-work__sqldatabase__README.md,"ence connection issues, you can pull changes from your shared database via the icon in the icon bar. If a newer version is available, JabRef will try to automatically merge the new version and your local copy. If this fails, the **Update refused** dialog will show up. You will then have to manually merge usi","If a newer version is available, JabRef will try to automatically merge the new version and your local copy.",Checks that a new version of database is available,"newer database version, available",org/jabref/logic/shared/DBMSSynchronizer.java:188,binary-comparison,dual-value-comparison,VDS
+jabref-5.0,JAB-2,en__advanced__commandline.md,"tput filename[,export format]`
+
+Export or save a file imported or loaded by the same command line.
+
+If a file is imported using the `-i` option, that file will be exported. If no `-i` option is used, the _last_ file specified \(and successfully loaded\) will be exported.","If a file is imported using the `-i` option, that file will be exported.",Checks that a file was imported using the -i option,"file imported with -i option, is",org/jabref/cli/ArgumentProcessor.java:219,boolean-property,dual-value-comparison,VDS
+jabref-5.0,JAB-20,en__collect__findunlinkedfiles.md,"](https://github.com/latextemplates/LNCS) formatted papers. Other formats are not \(yet\) supported. In case a DOI is found on the first page, the DOI is used to generate the BibTeX information.
+
+The next development step is to extract the title of the PDF, use the ""Lookup DOI"" and then the [G","In case a DOI is found on the first page, the DOI is used to generate the BibTeX information.",Checks if DOI was found on first page,"DOI first page, found",org/jabref/logic/importer/fileformat/PdfContentImporter.java:212,boolean-property,dual-value-comparison,VDS
+jabref-5.0,JAB-21,en__faqgeneral.md,"s opens a new window. Can JabRef open the libraries in the same window just in a different tab?
+
+A: In **Options → Preferences → Advanced → “Remote operation”** put a checkmark to “Listen for remote operation on port”. This option allows new instances of JabRef to detect the instance already running, and pass files t",In **Options → Preferences → Advanced → “Remote operation”** put a checkmark to “Listen for remote operation on port”.,Checks that the option “Listen for remote operation on port” is enabled,"Listen for remote operation on port, checkmark",org/jabref/JabRefMain.java:142,boolean-property,dual-value-comparison,VDS
+jabref-5.0,JAB-22,en__setup__bibtexkeypatterns.md,"h author's last name
+* **\[`auth.auth.ea`\]**: The last name of the first two authors, and “.ea” if there are more than two.
+* **\[`auth.etal`\]**: The last name of the first author, and the last name of the second author i",there are more than two.,Checks that entry has more than 2 authors,"auth.auth.ea, 2",org/jabref/logic/bibtexkeypattern/BracketedPattern.java:775,binary-comparison,value-comparison,VDS
+jabref-5.0,JAB-23,en__setup__bibtexkeypatterns.md,"more than 2 authors “EtAl” instead of “.etal” is appended.
+* **\[`authshort`\]**: The last name if one author is given; the first character of up to three authors' last names if more than one author is given. A plus ch",one author is given,Checks that authors == 1,"author, 1",org/jabref/logic/bibtexkeypattern/BracketedPattern.java:881,binary-comparison,value-comparison,VDS
+jabref-5.0,JAB-3,en__advanced__commandline.md,"fter importing, JabRef will start normally.
+
+### Reset preferences: `-d key`
+
+\(or `--prdef key`\)
+
+Reset preferences \(key1, key2,..., or `all`\).
+
+### No files at startup: `-b`
+
+\(or `--blank`\)
+
+Do not open any files at startup
+
+### Version: `-","Reset preferences \(key1, key2,..., or `all`\).",Checks that the value of the parameter -d (or -prdef) is ‘all’,"reset preferences, all",org/jabref/cli/ArgumentProcessor.java:473,binary-comparison,value-comparison,VDS
+jabref-5.0,JAB-4,en__advanced__entryeditor__README.md,"ress Ctrl + S or close the entry editor, JabRef will try to parse the contents of the source panel. If there are problems, you will be notified, and given the option to edit your entry further, or to revert to the former contents. If **Show source by default** is checked in the **General options** tab of the **Preferences** dial","If there are problems, you will be notified, and given the option to edit your entry further, or to revert to the former contents.",Checks that a parsing error occurred,"problems, are",org/jabref/gui/entryeditor/SourceTab.java:270,boolean-property,dual-value-comparison,VDS
+jabref-5.0,JAB-5,en__advanced__remote.md,"the firewall to keep blocking - the firewall will not interfere with remote operation of JabRef._
+
+If listening for remote operation is enabled, JabRef will at startup attempt to start listening to a specific port. This means that other applications can send information to JabRef through this port. JabRef will o","If listening for remote operation is enabled, JabRef will at startup attempt to start listening to a specific port.",Checks that “Listen for remote operation” is enabled,"listening for remote operation, enabled",org/jabref/JabRefMain.java:142,boolean-property,dual-value-comparison,VDS
+jabref-5.0,JAB-6,en__advanced__remote.md,"d-line option `--importToOpen`, the imported entries will be added to the currently shown database. If no database is open, a new one will be created.","If no database is open, a new one will be created.",Checks that no database is open,"no database open, is",org/jabref/gui/JabRefFrame.java:900,null-check,dual-value-comparison,VDS
+jabref-5.0,JAB-7,en__advanced__saveactions.md,"to lower case.
+
+## Upper case
+
+Changes all letters to upper case.
+
+## Minify list of person names
+
+Shortens lists of persons if there are more than 2 persons to \""et al.\"".","Shortens lists of persons if there are more than 2 persons to \""et al.\"".",Checks that there are more than two persons in the author list,"persons, 2",org/jabref/logic/formatter/minifier/MinifyNameListFormatter.java:74,binary-comparison,value-comparison,VDS
+jabref-5.0,JAB-8,en__cite__openofficeintegration.md,"lean | `false` | Determines the type of citations to use. If `true`, number citations will be used. If `false`, author-year citations will be used. |
+| IsSortByPosition | boolean | `false` | Determines how the bibliography is sorted. If true, the","If `false`, author-year citations will be used.",Checks that “IsNumberEntries” is “false”,"IsNumberEntries, false",org/jabref/gui/openoffice/OOBibBase.java:358,boolean-property,dual-value-comparison,VDS
+jabref-5.0,JAB-9,en__cite__openofficeintegration.md,"he order in which they are cited. If false, the entries will be sorted alphabetically by authors. |
+| ReferenceParagraphFormat | string | `Default` | Gives the name of the paragraph format to be used for the reference list. This format must be defin",| ReferenceParagraphFormat | string | `Default` |,Sets default value of “ReferenceParagraphFormat” to “Default”,"ReferenceParagraphFormat, Default",org/jabref/logic/openoffice/OOBibStyle.java:158,constant-argument,concrete-value,VDS
+jedit-5.6pre0,JED-1,jedit5.5.0manual-a4.txt,"If jEdit is started while another copy is already running, control is transferred to the running copy, and a second instance is not loaded. This saves time and memory if jEdit is started multiple times. Communication between instances of jEdit is implemented using TCP/IP sockets; the initial instance is known as the server, and subsequent invocations are clients.","another copy is already running,",has jEdit.alreadyRunning,"copy, running",org/gjt/sp/jedit/jEdit.java:304,boolean-property,dual-value-comparison,CDS
+jedit-5.6pre0,JED-10,jedit5.5.0manual-a4.txt,"File>New (shortcut: C+n) opens a new, empty, buffer. Another way to create a new file is to specify a non-existent file name when starting jEdit on the command line. A new file will be created on disk when the buffer is saved for the first time.",the buffer is saved for the first time.,has File.savedFirstTime,"buffer saved first time, is",org/gjt/sp/jedit/Buffer.java:1916,binary-flag-check,dual-value-comparison,CDS
+jedit-5.6pre0,JED-11,jedit5.5.0manual-a4.txt,"Files that you do not have write access to are opened in read-only mode, where editing is not permitted.",Files that you do not have write access to,File.writeAccess,"Files write access, have",org/gjt/sp/jedit/Buffer.java:2086,boolean-property,dual-value-comparison,CDS
+jedit-5.6pre0,JED-12,jedit5.5.0manual-a4.txt,"File>Save As renames the buffer and saves it in a new location. Note that using this command to save over another open buffer will close the other buffer, to stop two buffers from being able to share the same path name.",the same path name.,Buffer.path == Buffer.path,"path name, path name","org/gjt/sp/jedit/Buffer.java:2238,2239",binary-comparison,value-comparison,CDS
+jedit-5.6pre0,JED-13,jedit5.5.0manual-a4.txt,"File>Save a Copy As saves the buffer to a different location but does not rename the buffer, and does not clear the “modified” flag. Note that using this command to save over another open buffer will automatically reload the other buffer.",another open buffer,Buffer.path == Buffer.path,"buffer, another buffer","org/gjt/sp/jedit/Buffer.java:2264,2265",binary-comparison,value-comparison,CDS
+jedit-5.6pre0,JED-14,jedit5.5.0manual-a4.txt,"The autosave feature protects your work from computer crashes and such. Every 30 seconds, all buffers with unsaved changes are written out, with their respective file names, enclosed in hash (“#”) characters. For example, /home/user/project/program.c will be autosaved to home/user/project/#program.c# under your backup/autosave directory, or next to the original file, if no backup/autosave directory is specified.",buffers with unsaved changes,has Buffer.unsavedChanges,"buffers unsaved changes, with","org/gjt/sp/jedit/Buffer.java:366,367,368",boolean-property,dual-value-comparison,CDS
+jedit-5.6pre0,JED-15,jedit5.5.0manual-a4.txt,"If an autosave file is found while a buffer is being loaded, jEdit will offer to recover the autosaved data.",an autosave file is found,has Buffer.autosaveFile,"autosave file, found",org/gjt/sp/jedit/Buffer.java:208,boolean-property,dual-value-comparison,CDS
+jedit-5.6pre0,JED-16,jedit5.5.0manual-a4.txt,"If Autosave of Untitled Buffers is enabled, then jEdit will allow you to exit without asking you to save dirty untitled buffers, and will silently restore them for you on next jEdit startup.","Autosave of Untitled Buffers is enabled,",has jEdit.autosaveUntitledBuffers,"Autosave of Untitled Buffers, enabled",org/gjt/sp/jedit/Buffer.java:1788,boolean-property,dual-value-comparison,CDS
+jedit-5.6pre0,JED-17,jedit5.5.0manual-a4.txt,"The backup feature can be used to roll back to the previous version of a file after changes were made. When a buffer is saved for the first time after being opened, its original contents are “backed up” under a different file name.",a buffer is saved for the first time,has Buffer.savedFirstTime,"buffer saved first time, is",org/gjt/sp/jedit/bufferio/BufferSaveRequest.java:225-226,null-check,dual-value-comparison,CDS
+jedit-5.6pre0,JED-18,jedit5.5.0manual-a4.txt,The Max number of backups setting determines the number of backups to save. Setting this to zero disables the backup feature. Settings this to more than one adds numbered suffixes to file names. By default only one backup is saved.,Setting this to zero,jEdit.numberOfBackups == 0,"The Max number of backups, 0",org/gjt/sp/jedit/bufferio/BufferSaveRequest.java:228,binary-comparison,value-comparison,CDS
+jedit-5.6pre0,JED-19,jedit5.5.0manual-a4.txt,The Max number of backups setting determines the number of backups to save. Setting this to zero disables the backup feature. Settings this to more than one adds numbered suffixes to file names. By default only one backup is saved.,Settings this to more than one,jEdit.numberOfBackups > 1,"The Max number of backups, 1",org/gjt/sp/jedit/MiscUtilities.java:875,binary-comparison,value-comparison,CDS
+jedit-5.6pre0,JED-2,jedit5.5.0manual-a4.txt,"Not only does the edit server pick a random TCP port number on startup, it also requires that clients provide an authorization key; a randomly-generated number only accessible to processes running on the local machine. So not only will “bad guys” have to guess a 64-bit integer, they will need to get it right on the first try; the edit server shuts itself off upon receiving an invalid packet.",invalid packet.,has Packet.valid,"packet, invalid",org/gjt/sp/jedit/EditServer.java:314,binary-comparison,dual-value-comparison,CDS
+jedit-5.6pre0,JED-20,jedit5.5.0manual-a4.txt,"If the Backup, Autosave directory setting is non-empty, backups are saved in that location (with the full path to the original file under it). Otherwise, they are saved in the same directory as the original file.","the Backup directory setting is non-empty,",has jEdit.autosaveDirectory,"Backup directory setting non-empty, is",org/gjt/sp/jedit/MiscUtilities.java:732,null-zero-check,dual-value-comparison,CDS
+jedit-5.6pre0,JED-21,jedit5.5.0manual-a4.txt,"Clicking the Favorites button displays a menu showing all files and directories in the favorites list. The Add to Favorites item adds the currently selected file to the favorites list. If nothing is selected, the current directory is added. To remove a file from the favorites, invoke Edit Favorites, which will show the favorites list in the file system view, then select Delete from the right-click menu of the entry you want to remove.","nothing is selected,",has Browser.selection,"nothing selected, is",org/gjt/sp/jedit/browser/VFSBrowser.java:1960,null-zero-check,dual-value-comparison,CDS
+jedit-5.6pre0,JED-22,jedit5.5.0manual-a4.txt,"File>Close (shortcut: C+w) closes the current buffer. If it has unsaved changes, jEdit will ask if they should be saved first.","it has unsaved changes,",has Buffer.unsavedChanges,"buffer unsaved changes, has",org/gjt/sp/jedit/jEdit.java:2036,boolean-property,dual-value-comparison,CDS
+jedit-5.6pre0,JED-23,jedit5.5.0manual-a4.txt,"By default, the last 100 edits is retained; older edits cannot be undone. The maximum number of undos and whether undos are reset when a buffer is saved can be changed in the Editing pane of the Utilities> Options dialog box; see the section called “The Editing Pane”.",the last 100 edits is retained;,editsRetained = 100,"edits retained, 100",gjt/sp/jedit/Buffer.java:262,constant-argument,concrete-value,CDS
+jedit-5.6pre0,JED-24,jedit5.5.0manual-a4.txt,"If there is only one completion, it will be inserted into the buffer immediately.","there is only one completion,",completionAmount == 1,"1, completion",org/gjt/sp/jedit/gui/CompleteWord.java:93,binary-comparison,value-comparison,CDS
+jedit-5.6pre0,JED-25,jedit5.5.0manual-a4.txt,"If multiple completions were found, the longest common prefix is inserted into the buffer","multiple completions were found,",completionAmount > 1,"completions, 1",org/gjt/sp/jedit/gui/CompleteWord.java:93,binary-comparison,value-comparison,CDS
+jedit-5.6pre0,JED-26,jedit5.5.0manual-a4.txt,"If the margin is set to 0, then the width of the text area window is used to determine where to wrap lines.","the margin is set to 0,",jEdit.margin == 0,"margin, 0",org/gjt/sp/jedit/textarea/TextArea.java:6000,binary-comparison,value-comparison,CDS
+jedit-5.6pre0,JED-27,jedit5.5.0manual-a4.txt,"If end of line markers are enabled in the Text Area pane of the Utilities>Options dialog box, a special character (“↩”) is painted at the end of wrapped lines. If you are using a font that can not display it, or wish to use a different character, you can jEdit.setProperty(""view.eolMarkerChar"", ""↩""); from the Console beanshell and you will see it after a restart of jEdit. To enable/disable or change its color, see the section called “The Text Area Pane”.",end of line markers are enabled,has jEdit.endOfLineMarkers,"end of line markers, enabled",org/gjt/sp/jedit/textarea/TextAreaPainter.java:1455,boolean-property,dual-value-comparison,CDS
+jedit-5.6pre0,JED-28,jedit5.5.0manual-a4.txt,"In hard wrap mode, inserting text at the end of a line will automatically break the line if it extends beyond the wrap margin. Inserting or removing text in the middle of a line has no effect, however text can be re-wrapped using the Edit>Text>Format Paragraph command. See the section called “Working With Paragraphs”.",it extends beyond the wrap margin.,Line extends beyond wrapMargin,"text beyond wrap margin, extends",org/gjt/sp/jedit/textarea/TextArea.java:5673,binary-comparison,dual-value-comparison,CDS
+jedit-5.6pre0,JED-3,jedit5.5.0manual-a4.txt,-log=level | Set the minimum log level to an integer between 1 and 9. Default is 7,Default is 7.,default Log.level = 7,"log level, 7",org/gjt/sp/util/Log.java:97,assign-constant,concrete-value,CDS
+jedit-5.6pre0,JED-4,jedit5.5.0manual-a4.txt,"The drop-down buffer switcher list at the top of each EditPane shows a BufferSet, or a set of open buffers (see the section called “Buffer Sets and closing buffers”). Selecting a buffer on this list will make it visible in the TextArea. Different emblems are displayed next to buffer names in the list, depending the buffer's state; a red disk is shown for buffers with unsaved changes, a lock is shown for read-only buffers, and a spark is shown for new buffers which don't yet exist on disk.","buffers with unsaved changes,",has Buffer.unsavedChanges,"buffers unsaved changes, with",org/gjt/sp/jedit/Buffer.java:1043,boolean-property,dual-value-comparison,CDS
+jedit-5.6pre0,JED-5,jedit5.5.0manual-a4.txt,"The drop-down buffer switcher list at the top of each EditPane shows a BufferSet, or a set of open buffers (see the section called “Buffer Sets and closing buffers”). Selecting a buffer on this list will make it visible in the TextArea. Different emblems are displayed next to buffer names in the list, depending the buffer's state; a red disk is shown for buffers with unsaved changes, a lock is shown for read-only buffers, and a spark is shown for new buffers which don't yet exist on disk.","read-only buffers,",has Buffer.readOnly,"buffers read-only, is",org/gjt/sp/jedit/Buffer.java:1045,boolean-property,dual-value-comparison,CDS
+jedit-5.6pre0,JED-6,jedit5.5.0manual-a4.txt,"The drop-down buffer switcher list at the top of each EditPane shows a BufferSet, or a set of open buffers (see the section called “Buffer Sets and closing buffers”). Selecting a buffer on this list will make it visible in the TextArea. Different emblems are displayed next to buffer names in the list, depending the buffer's state; a red disk is shown for buffers with unsaved changes, a lock is shown for read-only buffers, and a spark is shown for new buffers which don't yet exist on disk.",new buffers which don't yet exist on disk.,has Buffer.existsOnDisk,"new buffers, is",org/gjt/sp/jedit/Buffer.java:1916,binary-flag-check,dual-value-comparison,CDS
+jedit-5.6pre0,JED-7,jedit5.5.0manual-a4.txt,"View>Close View closes the current View. If only one View is open, closing it will exit jEdit, unless background mode is on; see Chapter 2, Starting jEdit for information about starting jEdit in background mode.","only one View is open,",jEdit.openViews == 1,"View open, 1",org/gjt/sp/jedit/jEdit.java:4729,binary-comparison,value-comparison,CDS
+jedit-5.6pre0,JED-8,jedit5.5.0manual-a4.txt,"View>Close View closes the current View. If only one View is open, closing it will exit jEdit, unless background mode is on; see Chapter 2, Starting jEdit for information about starting jEdit in background mode.",background mode is on;,has jEdit.background,"background mode, on",org/gjt/sp/jedit/jEdit.java:3089,boolean-property,dual-value-comparison,CDS
+jedit-5.6pre0,JED-9,jedit5.5.0manual-a4.txt,"If you specify a repeat count greater than 20, a confirmation dialog box will be displayed, asking if you really want to perform the action. This prevents you from hanging jEdit by executing a command too many times.","a repeat count greater than 20,",repeatCount > 20,"repeat count, 20",org/gjt/sp/jedit/gui/InputHandler.java:347,binary-comparison,value-comparison,CDS
+jpos-2.1.4,JPO-1,2.2.2. Packing and unpacking,"meric (ASCII)
+
+IFE_NUMERIC
+
+Fixed length numeric (EBCDIC)
+
+IFB_NUMERIC
+
+Fixed length numeric (BCD)
+
+IFB_LLNUM
+
+Variable length numeric (BCD, maxlength=99)
+
+IFB_LLLNUM
+
+Variable length numeric (BCD, maxlength=999)
+
+IFB_LLLLNUM
+
+Variable length numeric (B","IFB_LLNUM
+
+Variable length numeric (BCD, maxlength=99)",Checks/Enforces the length of a field of IFB_LLNUM type to be <= 99,"length, 99",org/jpos/iso/ISOStringFieldPackager.java:240,binary-comparison,value-comparison,VDS
+jpos-2.1.4,JPO-10,7.7. Dynamic classloading,"the deploy directory that Q2 monitors to see changes in the deployed services, it also monitors
+the timestamp of the deploy/lib directory, and if changed, it scans all jars in there and add them to the URL
+classloader of the MBeanServer, used by Q2 to i","timestamp of the deploy/lib directory, and if changed,",Checks that the deploy/lib directory has changed,"deploy/lib directory, changed",org/jpos/q2/QClassLoader.java:63,binary-comparison,dual-value-comparison,VDS
+jpos-2.1.4,JPO-11,8.1.1. QBean descriptor,"ed.
+⑦ The channel element can have multiple optional filter child elements (see Filtered Channels). The
+direction attribute is optional, if not present (or if its value is both), the filter is configured to process
+both incoming as well as outgoing messages.
+⑧ Space queue use","The
+direction attribute is optional, if not present (or if its value is both)",Checks that the value of the “direction” attribute in a channel element is ‘both’,"direction, both",org/jpos/q2/iso/ChannelAdaptor.java:237,binary-comparison,concrete-value,VDS
+jpos-2.1.4,JPO-12,"8.1.3. Channel timeout, keep-alive, connection-timeout","sage, causing a
+reconnection at that time, instead of ahead of time, while it was idle.
+Setting the keep-alive (true/false) would set the low level SO_KEEPALIVE flag at the socket level for
+situations where no network mana",keep-alive (true/false),Checks that “keep-alive” property of channel is one of true/false,"keep-alive, true, false",org/jpos/core/SimpleConfiguration.java:145,binary-comparison,categorical-value,VDS
+jpos-2.1.4,JPO-13,8.4.1. QBean descriptor,">--> <!--default last connected -->
+<send-request>RR</send-request> <!-- round-robin -->
+</qserver>
+QServer can accept multiple simultaneous sockets (default 100) that can be configured using the JMX
+
+108
+
+_x000c_attributes minSessions and maxSessions, i.e:
+
+<attr na",QServer can accept multiple simultaneous sockets (default 100),Sets default value of maxSessions to 100,"maxSessions, 100",org/jpos/q2/iso/QServer.java:59,assign-constant,concrete-value,VDS
+jpos-2.1.4,JPO-14,8.4.1. QBean descriptor,"ked, starting with the wildcard ""deny"" set, and following with the wildcard
+""allow"" set.
+• If only ""allow"" expressions are used, the default policy will be to deny unmatching IPs.
+• If only ""deny"" expressions are used,","allow"" expressions",Checks that only “allow” expressions were used,"only allow expressions, used",org/jpos/iso/ISOServer.java:201,boolean-property,dual-value-comparison,VDS
+jpos-2.1.4,JPO-15,9.1. TransactionConstants,"REPARED too.
+
+RETRY
+
+2
+
+The transaction will be retried after a short period of time defined by
+the retry-timeout TransactionManager property (which defaults to 5
+seconds). This can be used in situations where a transient error has
+been detected (such as a link down sit","retry-timeout TransactionManager property (which defaults to 5
+seconds)",Sets the default value of retry-timeout to 5,"retry-timeout, 5 seconds",jpos/src/main/java/org/jpos/transaction/TransactionManager.java:96,assign-constant,concrete-value,VDS
+jpos-2.1.4,JPO-16,9.1. TransactionConstants,"ents the Pausable interface)
+b) A timeout specified by the Context’s Pausable interface occurs
+c) A default timeout specified by the TransactionManager’s pausetimeout property (which defaults to five minutes)
+
+NO_JOIN
+
+0x40
+
+This modifier is a hint to the TransactionManager to let it know that it
+is not re",default timeout specified by the TransactionManager’s pausetimeout property (which defaults to five minutes),Sets default value of pause-timeout property to 5 minutes,"pause-timeout, 5 minutes",org/jpos/transaction/TransactionManager.java:97,assign-constant,concrete-value,VDS
+jpos-2.1.4,JPO-17,9.1. TransactionConstants,"ant’s commit or abort methods once
+the committing or aborting phase of the transaction is reached.
+
+READONLY
+
+0x80
+
+This modifier is a hint to the TransactionManager to let it know that
+this participant has not mod","READONLY
+
+0x80",Checks that the transaction is marked with READONLY,"transaction READONLY, is",org/jpos/transaction/TransactionManager.java:668,binary-flag-check,dual-value-comparison,VDS
+jpos-2.1.4,JPO-18,9.7.2. Configuration,": org.jpos.transaction.Debug [9.3/21.7]
+end [22.8/22.8]
+</profiler>
+</debug>
+• sessions
+Defines the number of simultaneous sessions (Threads) used to process transactions. Defaults to one. It
+is recommended to keep the sessions property within a reasonable value commensurate the number",number of simultaneous sessions (Threads) used to process transactions. Defaults to one.,Sets the default value of the sessions property to 1,"sessions, 1",org/jpos/transaction/TransactionManager.java:440,constant-argument,concrete-value,VDS
+jpos-2.1.4,JPO-19,9.8. Transaction Participants,"element supports an optional enabled attribute that can be used
+disable participants at runtime. The enabled value can either be 'yes/no/true/false` or a
+list of environment names (i.e.: prod, staging).
+
+9.8.1. Switch participant
+The org.jpos.trans",enabled value can either be 'yes/no/true/false`,Checks value of “enabled” property of participant element is one of 'yes/no/true/false`,"enabled, yes, no, true, false","org/jpos/q2/QFactory.java:446,447",binary-comparison,categorical-value,VDS
+jpos-2.1.4,JPO-2,2.2.5. Accepting connections with ISOServer,"}
+}
+
+
+
+The third argument of ISOServer’s constructor is an optional ThreadPool. Should you pass
+a null parameter there, a new ThreadPool is created for you, which defaults to 100
+threads. (new ThreadPool (1,100))",null parameter,Checks that the TreadPool parameter is null,"constructor parameter, null",org/jpos/iso/ISOServer.java:117,null-check,dual-value-comparison,VDS
+jpos-2.1.4,JPO-20,2.3. IncomingListener,"cription
+
+Default Value
+
+queue
+
+Transaction Manager’s queue
+
+no default, this property is required
+
+timeout
+
+Source Based Timeout
+
+15000ms, set to 0 to disable
+
+source
+
+Places ISOSource
+
+SOURCE
+
+request
+
+Places ISOMsg
+
+REQUEST
+
+timestamp
+
+Context creation tim","timeout
+
+Source Based Timeout
+
+15000ms, set to 0 to disable",Checks that timeout is 0,"timeout, 0",org/jpos/space/TSpace.java:70,binary-comparison,value-comparison,VDS
+jpos-2.1.4,JPO-3,2.3. IncomingListener,"perties:
+Table 13. IncomingListener Configuration Properties
+
+Property
+
+Description
+
+Default Value
+
+queue
+
+Transaction Manager’s queue
+
+no default, this property is required
+
+timeout
+
+Source Based Timeout
+
+15000ms, set to 0 to disable
+
+source
+
+Places ISOSource
+
+SOURCE
+
+req","queue
+
+Transaction Manager’s queue
+
+no default, this property is required",Checks that the queue property is present,"queue, present",org/jpos/iso/IncomingListener.java:53,null-check,dual-value-comparison,VDS
+jpos-2.1.4,JPO-4,2.3. IncomingListener,"cription
+
+Default Value
+
+queue
+
+Transaction Manager’s queue
+
+no default, this property is required
+
+timeout
+
+Source Based Timeout
+
+15000ms, set to 0 to disable
+
+source
+
+Places ISOSource
+
+SOURCE
+
+request
+
+Places ISOMsg
+
+REQUEST
+
+timestamp
+
+Context creation tim","timeout
+
+Source Based Timeout
+
+15000ms, set to 0 to disable",Sets default value of timeout property to 15000ms,"timeout, 15000ms",org/jpos/iso/IncomingListener.java:50,constant-argument,concrete-value,VDS
+jpos-2.1.4,JPO-5,2.3. IncomingListener,"OSource
+
+SOURCE
+
+request
+
+Places ISOMsg
+
+REQUEST
+
+timestamp
+
+Context creation timestamp
+
+TIMESTAMP
+
+space
+
+Spaces to use when queuing transaction
+
+"""" (default space)
+
+In addition to the previous configuration properties, IncomingListener places in the context any","space
+
+Spaces to use when queuing transaction
+
+"""" (default space)",Sets the default value of the space configuration property to “”,"space, """"",org/jpos/core/SimpleConfiguration.java:118,constant-argument,concrete-value,VDS
+jpos-2.1.4,JPO-6,3.1. jPOS' Logger,"rward log events to the operating system syslog.
+
+RealmLogFilter
+
+Filter log events by their realm. Enabled or disabled realms can be
+defined.
+
+
+
+In the jPOS-EE code base you can find some additional logger implementations su",Enabled or disabled realms,Checks that the realm is enabled,"realm, enabled",org/jpos/util/RealmLogFilter.java:117,boolean-property,dual-value-comparison,VDS
+jpos-2.1.4,JPO-7,7.1. Running Q2,"2 needs a logger, so the first thing it looks for is a logger configuration, which has a well known QBean
+descriptor name: 00_logger.xml. This is the only special name used by Q2, and is required to provide some
+visibility into the star","QBean
+descriptor name: 00_logger.xml.",Sets name of logger descriptor to 00_logger.xml,"logger descriptor, 00_logger.xml",org/jpos/q2/Q2.java:91,assign-constant,concrete-value,VDS
+jpos-2.1.4,JPO-8,PUSH configuration - Setting QBean attributes,"g.jpos.qtest.QTest'>
+<attr name=""tickInterval"" type=""java.lang.Long"">5000</attr>
+</qbean>
+
+
+
+If no type attribute, the default is java.lang.String. java.lang.Long can be abbreviated as
+just long, same goes for int (java.lang.Integer) and +boolean","type attribute, the default is java.lang.String.",Sets the default value of type to java.lang.String,"type attribute, java.lang.String.",org/jpos/q2/QFactory.java:248,constant-argument,concrete-value,VDS
+jpos-2.1.4,JPO-9,7.6. QBeanSupport,"to the Q2 system.
+It also implements a boolean running() method so that your QBean can check if the QBean is still running
+and get out of a running loop.
+QBeanSupport provides a handy QBeanSupportMBean so if your QBean doe",QBean is still running,Checks that Qbean is running,"QBean, still running",org/jpos/q2/QBeanSupport.java:230,binary-comparison,dual-value-comparison,VDS
+joda_time-2.10.3,JTI-1,field.html.txt,"The fields are explained in more detail below (for the GJChronology):
+...
+millisOfSecond | 0 | 999",millisOfSecond____|_________0____|________999_,Checks/Enforces that millisOfSecond is <= 999,"millisOfSecond, 999",src/main/java/org/joda/time/field/FieldUtils.java:274,binary-comparison,value-comparison,CDS
+joda_time-2.10.3,JTI-10,cal_islamic.html.txt,"Joda-Time allows you to choose between these leap year patterns. The 16-based algorithm is the most commonly used, and is the default. Note that Microsoft uses the 15-based pattern, and calls it the 'Kuwaiti algorithm'.",is the default.,Sets default value of algorithm to 16-based,"leap year pattern, 16-based",org/joda/time/chrono/IslamicChronology.java:82,constant-argument,concrete-value,CDS
+joda_time-2.10.3,JTI-11,cal_islamic.html.txt,The epoch of the calendar system is 0622-07-16 (Julian) which is therefore 0001-01-01 (Islamic). The current (and only implemented) era is 'AH' (Anno Hegirae).,The epoch of the calendar system is 0622-07-16,Sets value of epoch to 0622-07-16 (Julian),"epoch calendar system, 0622-07-16",src/main/java/org/joda/time/chrono/IslamicChronology.java:212,constant-argument,concrete-value,CDS
+joda_time-2.10.3,JTI-12,cal_iso.html.txt,"This format of ISO8601 has the following fields:
+...
+two digit week of year, from 01 to 53","week of year, from 01 to 53",Checks/Enforces that week of year is in range 1 – 53,"1, 53",src/main/java/org/joda/time/field/FieldUtils.java:256,binary-comparison,value-comparison,CDS
+joda_time-2.10.3,JTI-2,userguide.html.txt,"Intervals are implemented as half-open, which is to say that the start instant is inclusive but the end instant is exclusive. The end is always greater than or equal to the start. Both end-points are restricted to having the same chronology and the same time zone.",The end is always greater than or equal to the start.,Checks/Enforces that the end is greater or equal than the start,"end, start",src/main/java/org/joda/time/base/AbstractInterval.java:62,binary-comparison,value-comparison,CDS
+joda_time-2.10.3,JTI-3,cal_coptic.html.txt,"The Coptic calendar system consists of 12 months of exactly 30 days, followed by a 5 or 6 day intercalary month making a year of 365 or 366 days. Leap years (6 day intercalary month) occur every 4 years without exception (as per the Julian calendar). They occur when the remainder left after dividing the Coptic year by four is 3. The Coptic year starts on Septamber 11th/12th depending on leap years. The epoch date for the calendar is 0284-08-29 (Julian), which therefore is 0001-01-01 (Coptic). The current era is 'AM' (Anno Martyrum or Year of the Martyrs).",the remainder left after dividing the Coptic year by four is 3.,Checks that remainder is equal to 3,"Coptic year remainder 4, 3",src/main/java/org/joda/time/chrono/BasicFixedMonthChronology.java:112,binary-comparison,value-comparison,CDS
+joda_time-2.10.3,JTI-4,cal_coptic.html.txt,Joda-Time implements the rules described above. We model the 5 or 6 day intercalary month as month 13. We also prevent the entry of dates before year 1.,dates before year 1.,Checks/Enforces that year > 1,"dates, year 1",src/main/java/org/joda/time/chrono/LimitChronology.java:283,binary-comparison,value-comparison,CDS
+joda_time-2.10.3,JTI-5,cal_coptic.html.txt,"The Coptic calendar system consists of 12 months of exactly 30 days, followed by a 5 or 6 day intercalary month making a year of 365 or 366 days. Leap years (6 day intercalary month) occur every 4 years without exception (as per the Julian calendar). They occur when the remainder left after dividing the Coptic year by four is 3. The Coptic year starts on Septamber 11th/12th depending on leap years. The epoch date for the calendar is 0284-08-29 (Julian), which therefore is 0001-01-01 (Coptic). The current era is 'AM' (Anno Martyrum or Year of the Martyrs).",The epoch date for the calendar is 0284-08-29,Sets value of epoch to 0284-08-29 (Julian),"epoch date, calendar, 0284-08-29",src/main/java/org/joda/time/chrono/CopticChronology.java:144,constant-argument,concrete-value,CDS
+joda_time-2.10.3,JTI-6,cal_ethiopic.html.txt,"The Ethiopic calendar system consists of 12 months of exactly 30 days, followed by a 5 or 6 day intercalary month making a year of 365 or 366 days. Leap years (6 day intercalary month) occur every 4 years without exception (as per the Julian calendar). They occur when the remainder left after dividing the Ethiopic year by four is 3. The Ethiopic year starts on Septamber 11th/12th depending on leap years. The epoch date for the calendar is 0008-08-29 (Julian), which therefore is 0001-01-01 (Ethiopic). The current era is 'EE' (Ethiopian Era).",The epoch date for the calendar is 0008-08-29,Sets value of epoch to 0008-08-29 (Julian),"epoch date, calendar, 0008-08-29",src/main/java/org/joda/time/chrono/EthiopicChronology.java:145,constant-argument,concrete-value,CDS
+joda_time-2.10.3,JTI-7,cal_ethiopic.html.txt,Joda-Time implements the rules described above. We model the 5 or 6 day intercalary month as month 13. We also prevent the entry of dates before year 1.,dates before year 1.,Checks/Enforces that year > 1,"dates, year 1",src/main/java/org/joda/time/chrono/LimitChronology.java:283,binary-comparison,value-comparison,CDS
+joda_time-2.10.3,JTI-8,cal_gj.html.txt,"The GregorianJulian calendar is a combination of two separate calendar systems, the Gregorian and the Julian. The switch from one to the other occurs at a configurable date. The default date is 1582-10-15, as defined by Pope Gregory XIII.","The default date is 1582-10-15,",Sets default value of cutoff date to 1582-10-15,"date, 1582-10-15",src/main/java/org/joda/time/chrono/GJChronology.java:104,constant-argument,concrete-value,CDS
+joda_time-2.10.3,JTI-9,cal_islamic.html.txt,"The definition of a leap year in the Islamic calendar varies. All agree on a 30 year cycle, however which years within the 30 are leap varies by the leap year pattern:
+...
+15-based | 2, 5, 7, 10, 13, 15, 18, 21, 24, 26, 29","2, 5, 7, 10, 13, 15, 18, 21, 24, 26, 29","Checks that year is in set 2, 5, 7, 10, 13, 15, 18, 21, 24, 26, 29","year, 2, 5, 7, 10, 13, 15, 18, 21, 24, 26, 29",src/main/java/org/joda/time/chrono/IslamicChronology.java:544,binary-flag-check,categorical-value,CDS
+log4j-2.13.3,LOG-1,logging_txt.apache.org__log4j__2.x__manual__appenders.html,"of the appenders can be called, either due to errors
+in the appenders or because the queue is full. If not specified then errors will be ignored.
+
+filter
+Filter
+A Filter to determine if the event should be handled by this Appender. More than on",If not specified then errors will be ignored.,Checks that AsyncAppender.errorRef is specified,"errorRef, specified",org/apache/logging/log4j/core/appender/AsyncAppender.java:111,null-check,dual-value-comparison,VDS
+log4j-2.13.3,LOG-10,logging_txt.apache.org__log4j__2.x__manual__appenders.html,"enamed to
+foo-3.log. A new foo.log file is created and starts being written to.
+
+By way of contrast, when the fileIndex attribute is set to ""min"" but all the other settings are the
+same the ""fixed window"" strategy will be performed.
+
+
+Number of rollovers
+Active output target
+Archived log files
+Description
+
+0
+foo.log
+-
+All logging","when the fileIndex attribute is set to ""min"" but all the other settings are the
+same the ""fixed window"" strategy will be performed.",Checks that DefaultRolloverStrategy.fileIndex is “min”,"fileIndex, min",org/apache/logging/log4j/core/appender/rolling/DefaultRolloverStrategy.java:126,binary-comparison,value-comparison,VDS
+log4j-2.13.3,LOG-11,logging_txt.apache.org__log4j__2.x__manual__appenders.html,"f files is exceeded the oldest file will be deleted. If specified, the value must
+be greater than 1. If the value is less than zero or omitted then the number of files will
+not be limited.
+
+compressionLevel
+integer
+
+Sets the compression level, 0-9, where 0 = none, 1 = best speed, through","If the value is less than zero or omitted then the number of files will
+not be limited.",Checks that DirectWriteRolloverStrategy.maxFiles is < 0,"maxFiles, 0",org/apache/logging/log4j/core/appender/rolling/DirectWriteRolloverStrategy.java:342,binary-comparison,value-comparison,VDS
+log4j-2.13.3,LOG-12,logging_txt.apache.org__log4j__2.x__manual__appenders.html,"rectory.
+
+followLinks
+boolean
+Whether to follow symbolic links. Default is false.
+
+testMode
+boolean
+If true, files are not deleted but instead a message is printed to the status logger at INFO level.
+Use this to do a dry run to test if the configuration works as expected. Default is false.
+
+pathSor","If true, files are not deleted but instead a message is printed to the status logger at INFO level.",Checks that Delete.testMode is true,"testMode, true",org/apache/logging/log4j/core/appender/rolling/action/DeleteAction.java:106,boolean-property,dual-value-comparison,VDS
+log4j-2.13.3,LOG-13,logging_txt.apache.org__log4j__2.x__manual__appenders.html,".
+
+
+RollingRandomAccessFileAppender Parameters
+
+Parameter Name
+Type
+Description
+
+append
+boolean
+When true - the default, records will be appended to the end
+of the file. When set to false,
+the file will be cleared before
+new records are written.
+
+
+fi","When true - the default, records will be appended to the end
+of the file. W",Checks that RollingRandomAccessFileAppender.append is true,"append, true",org/apache/logging/log4j/core/appender/rolling/RollingRandomAccessFileManager.java:220,boolean-property,dual-value-comparison,VDS
+log4j-2.13.3,LOG-14,logging_txt.apache.org__log4j__2.x__manual__appenders.html,"ements, named endpoint.
+
+ignoreExceptions
+boolean
+If true, exceptions will be logged and suppressed. If false errors will be logged and then passed to the application.
+
+affinity
+long
+The ZMQ_AFFINITY option. Defaults to 0.
+
+backlog
+long
+The ZMQ_BACKLOG option. Defau",If false errors will be logged and then passed to the application.,Checks that JeroMQ.ignoreExceptions is false,"ignoreExceptions, false",org/apache/logging/log4j/core/appender/DefaultErrorHandler.java:74,boolean-property,dual-value-comparison,VDS
+log4j-2.13.3,LOG-15,logging_txt.apache.org__log4j__2.x__manual__architecture.html,"t is possible to override this default behavior so that
+Appender accumulation is no longer additive by setting additivity=""false"" on the
+Logger declaration in the configuration file.
+
+
+The rules governing appender additivity are summarized below.
+
+Appender Additivity
+
+The output o","by setting additivity=""false"" on the
+Logger declaration in the configuration file.",Checks that additivity is false,"additivity, false",org/apache/logging/log4j/core/config/LoggerConfig.java:520,boolean-property,dual-value-comparison,VDS
+log4j-2.13.3,LOG-16,logging_txt.apache.org__log4j__2.x__manual__layouts.html,"ludes the JSON header and footer, and comma between records. Defaults to false.
+
+properties
+boolean
+If true, the appender includes the thread context map in the generated JSON. Defaults to false.
+
+propertiesAsList
+boolean
+If true, the thread context map is included as a list","If true, the appender includes the thread context map in the generated JSON.",Checks that JsonLayout.properties is true,"properties, true",org/apache/logging/log4j/core/layout/JsonLayout.java:96,boolean-property,dual-value-comparison,VDS
+log4j-2.13.3,LOG-17,logging_txt.apache.org__log4j__2.x__manual__layouts.html,"case the thread context map is included as a simple map of key-value pairs.
+
+locationInfo
+boolean
+
+If true, the appender includes the location information in the generated JSON. Defaults to false.
+
+Generating location information
+is an expensive operation and may impact perfo","If true, the appender includes the location information in the generated JSON.",Checks that JsonLayout.locationInfo is true,"locationInfo, true",org/apache/logging/log4j/core/layout/JacksonFactory.java:265,boolean-property,dual-value-comparison,VDS
+log4j-2.13.3,LOG-18,logging_txt.apache.org__log4j__2.x__manual__layouts.html,"""false"", which
+means the appender uses end-of-line characters and indents lines to format the XML. If
+compact=""true"", then no end-of-line or indentation is used. Message content may contain,
+of course, end-of-lines.
+
+
+XmlLayout Parameters
+
+Parameter Name
+Type
+D","If
+compact=""true"", then no end-of-line or indentation is used.",Checks that XmlLayout.compact is true,"compact, true",org/apache/logging/log4j/core/layout/AbstractJacksonLayout.java:252,boolean-property,dual-value-comparison,VDS
+log4j-2.13.3,LOG-2,logging_txt.apache.org__log4j__2.x__manual__appenders.html,"t.Type
+The batch type to use when using batched writes. By default, this is LOGGED.
+
+bufferSize
+int
+The number of log messages to buffer or batch before writing. By default, no buffering is done.
+
+clusterName
+String
+The name of the Cassandra cluster to connect",The number of log messages to buffer or batch before writing.,Checks that the number of batched messages is equal to CassandraAppender.bufferSize,"bufferSize, log messages",org/apache/logging/log4j/core/appender/db/AbstractDatabaseManager.java:124,binary-comparison,value-comparison,VDS
+log4j-2.13.3,LOG-3,logging_txt.apache.org__log4j__2.x__manual__appenders.html,"of hosts and ports of Cassandra nodes to connect to. These must be valid hostnames or IP
+addresses. By default, if a port is not specified for a host or it is set to 0, then the default
+Cassandra port of 9042 will be used. By default, localhost:9042 will be used.
+
+filter
+Filter
+A Filter to determine if the event should","By default, if a port is not specified for a host or it is set to 0, then the default
+Cassandra port of 9042 will be used.",Checks that the port is not specified,"port, not specified",org/apache/logging/log4j/cassandra/CassandraManager.java:212,binary-comparison,dual-value-comparison,VDS
+log4j-2.13.3,LOG-4,logging_txt.apache.org__log4j__2.x__manual__appenders.html,"le. When set to false,
+the file will be cleared before new records are written.
+
+bufferedIO
+boolean
+When true - the default, records will be written to a buffer and the data will be written to
+disk when the buffer is full or, if immediateFlush is set, when the record is written.
+File locking cannot be used with bufferedIO. Performance tests have shown that using buffered I/O","When true - the default, records will be written to a buffer and the data will be written to
+disk when the buffer is full or, if immediateFlush is set, when the record is written.",Checks that FileAppender.immediateFlush is set,"immediateFlush, set",org/apache/logging/log4j/core/appender/AbstractOutputStreamAppender.java:198,boolean-property,dual-value-comparison,VDS
+log4j-2.13.3,LOG-5,logging_txt.apache.org__log4j__2.x__manual__appenders.html,"t factory is the
+FlumeAvroAppender itself.
+
+layout
+Layout
+The Layout to use to format the LogEvent. If no layout is specified RFC5424Layout will be used.
+
+lockTimeoutRetries
+integer
+The number of times to retry if a LockConflictException occurs while wr",If no layout is specified RFC5424Layout will be used.,Checks that FlumeAppender.layout is not specified,"layout, not specified",org/apache/logging/log4j/flume/appender/FlumeAppender.java:251,null-check,dual-value-comparison,VDS
+log4j-2.13.3,LOG-6,logging_txt.apache.org__log4j__2.x__manual__appenders.html,"attribute.
+
+mdcRequired
+String
+A comma separated list of mdc keys that must be present in the MDC. If a key is not present a
+LoggingException will be thrown.
+
+mdcPrefix
+String
+A string that should be prepended to each MDC key in order to distinguish it from","If a key is not present a
+LoggingException will be thrown.",Checks that the key is not present in the MDC,"key, not present",org/apache/logging/log4j/flume/appender/FlumeEvent.java:127,boolean-property,dual-value-comparison,VDS
+log4j-2.13.3,LOG-7,logging_txt.apache.org__log4j__2.x__manual__appenders.html,"default is 0 (infinite timeout).
+
+readTimeoutMillis
+integer
+The socket read timeout in milliseconds. Optional, default is 0 (infinite timeout).
+
+headers
+Property[]
+Additional HTTP headers to use. The values support lookups.
+
+ignoreExceptions
+b","Optional, default is 0 (infinite timeout).",Sets default value of HttpAppender.readTimeoutMillis to 0,"readTimeoutMillis, 0",org/apache/logging/log4j/core/appender/HttpAppender.java:62,assign-constant,concrete-value,VDS
+log4j-2.13.3,LOG-8,logging_txt.apache.org__log4j__2.x__manual__appenders.html,"rs
+Property[]
+Additional HTTP headers to use. The values support lookups.
+
+ignoreExceptions
+boolean
+The default is true, causing exceptions encountered while appending events to be
+internally logged and then ignored. When set to false exceptions will be propagated to the
+caller, instead. You must set this to false","The default is true, causing exceptions encountered while appending events to be
+internally logged and then ignored.",Checks that HttpAppender.ignoreExceptions is true,"ignoreExceptions, true",org/apache/logging/log4j/core/appender/DefaultErrorHandler.java:74,boolean-property,concrete-value,VDS
+log4j-2.13.3,LOG-9,logging_txt.apache.org__log4j__2.x__manual__appenders.html,"ue, causing exceptions encountered while appending events to be
+internally logged and then ignored. When set to false exceptions will be propagated to the
+caller, instead. You must set this to false when wrapping this Appender in a
+FailoverAppender.
+
+RewritePolicy
+
+Rewr","When set to false exceptions will be propagated to the
+caller, instead.",Checks that RewriteAppender.ignoreException is false,"ignoreExceptions, false",org/apache/logging/log4j/core/appender/FailoverAppender.java:147,boolean-property,dual-value-comparison,VDS
+mybatis-3.5.5,MYB-1,java-api_txt.html.json,"e, commit, rollback and close.
+
+By default local cache data is used for the whole session duration. This cache is needed to resolve circular references and to speed up repeated nested queries, so it can never be completely disabled but you can configure the local cache to be used just for the duration of a statement execution by setting localCacheScope=STATEMENT.
+
+Note that when the localCacheScope is set to SESSION, MyBatis returns references to the same obje","This cache is needed to resolve circular references and to speed up repeated nested queries, so it can never be completely disabled but you can configure the local cache to be used just for the duration of a statement execution by setting localCacheScope=STATEMENT.",Check that localCacheScope == STATEMENT,"localCacheScope, STATEMENT",org/apache/ibatis/executor/BaseExecutor.java:167,binary-comparison,value-comparison,VDS
+mybatis-3.5.5,MYB-10,configuration.html.json,"that a connection is in good working order and is ready
+to
+accept requests. The default is ""NO PING QUERY SET"", which will
+cause most database drivers to fail with a decent error message.
+
+poolPingEnabled – This enables or disables the ping query. If
+enabled, you","The default is ""NO PING QUERY SET"", which will
+cause most database drivers to fail with a decent error message.",poolPingQuery,"poolPingQuery, NO PING QUERY SET",org/apache/ibatis/datasource/pooled/PooledDataSource.java:53,assign-constant,concrete-value,VDS
+mybatis-3.5.5,MYB-11,java-api_txt.html.json,"ers will not hit the database. The local cache is cleared upon update, commit, rollback and close.
+
+By default local cache data is used for the whole session duration. This cache is needed to resolve circular references and to speed up repeated nested queries, so it",By default local cache data is used for the whole session duration.,Sets default value for localCacheScope to SESSION,"localCacheScope, SESSION",org/apache/ibatis/builder/xml/XMLConfigBuilder.java:260,constant-argument,concrete-value,VDS
+mybatis-3.5.5,MYB-12,logging_txt.html.json,"guration>
+<settings>
+...
+<setting name=""logImpl"" value=""LOG4J""/>
+...
+</settings>
+</configuration>
+
+
+Valid values are SLF4J, LOG4J, LOG4J2, JDK_LOGGING, COMMONS_LOGGING, STDOUT_LOGGING, NO_LOGGING or
+a full qualified class name that implements org.apache.ibatis.logging.Log and gets
+an string as a constructor parameter.
+
+
+You can also select the implementation by calling one of the following methods:
+
+
+org.apache.iba","Valid values are SLF4J, LOG4J, LOG4J2, JDK_LOGGING, COMMONS_LOGGING, STDOUT_LOGGING, NO_LOGGING or
+a full qualified class name that implements org.apache.ibatis.logging.Log and gets
+an string as a constructor parameter.","Checks that the value of logImpl setting is one of SLF4J, LOG4J, LOG4J2, JDK_LOGGING, COMMONS_LOGGING, STDOUT_LOGGING, NO_LOGGING","logImpl, SLF4J, LOG4J, LOG4J2, JDK_LOGGING, COMMONS_LOGGING, STDOUT_LOGGING, NO_LOGGING",org/apache/ibatis/type/TypeAliasRegistry.java:113,boolean-property,categorical-value,VDS
+mybatis-3.5.5,MYB-13,sqlmap-xml.html.json,"carded.
+
+
+
+resultOrdered
+This is only applicable for nested result select statements: If this is true, it
+is assumed that nested results are contained or grouped together such that when a
+new main result row is returned, no references to a previous result row will occur
+anymore. This allows nested results to be filled much more memory friendly. Default:
+false.","If this is true, it
+is assumed that nested results are contained or grouped together such that when a
+new main result row is returned, no references to a previous result row will occur
+anymore.",Checks that resultOrdered is TRUE,"resultOrdered, true",org/apache/ibatis/executor/resultset/DefaultResultSetHandler.java:902,boolean-property,dual-value-comparison,VDS
+mybatis-3.5.5,MYB-14,sqlmap-xml.html.json,"inline parameter mappings and the parameterType attribute.
+
+
+
+
+flushCache
+Setting this to true will cause the 2nd level and local caches to be flushed whenever this statement is
+called. Default: true for insert, update and delete statements.
+
+
+
+timeout
+This sets the max","Setting this to true will cause the 2nd level and local caches to be flushed whenever this statement is
+called.",,"flushCache, true",org/apache/ibatis/executor/BaseExecutor.java:146,boolean-property,dual-value-comparison,VDS
+mybatis-3.5.5,MYB-15,sqlmap-xml.html.json,"ty will be changed, just as you would
+expect if you were calling for an output parameter. If the mode=OUT (or INOUT) and the
+jdbcType=CURSOR (i.e. Oracle REFCURSOR), you must specify a resultMap to map the ResultSet to the
+type of the parameter. Note that the javaType attribute is optional here, it will be automatically
+set to Resul","If the mode=OUT (or INOUT) and the
+jdbcType=CURSOR (i.e. Oracle REFCURSOR), you must specify a resultMap to map the ResultSet to the
+type of the parameter.",Checks that mode=OUT,"mode, OUT",org/apache/ibatis/executor/resultset/DefaultResultSetHandler.java:145,binary-comparison,value-comparison,VDS
+mybatis-3.5.5,MYB-2,configuration.html.json,"er this configuration.
+
+
+true | false
+
+
+true
+
+
+
+
+lazyLoadingEnabled
+
+
+Globally enabl",TRUE,Sets default value for cacheEnabled to TRUE,"cacheEnabled, true",org/apache/ibatis/builder/xml/XMLConfigBuilder.java:247,constant-argument,concrete-value,VDS
+mybatis-3.5.5,MYB-3,configuration.html.json,"lazyLoadingEnabled
+
+
+Globally enables or disables lazy loading. When enabled, all relations will be lazily loaded.
+This value can be superseded for a specific relation by using the fetchType attrib","When enabled, all relations will be lazily loaded.",Checks that lazyLoadingEnabled is set to TRUE,"lazyLoadingEnabled, true",org/apache/ibatis/builder/xml/XMLMapperBuilder.java:389,boolean-property,dual-value-comparison,VDS
+mybatis-3.5.5,MYB-4,configuration.html.json,"Derby).
+
+
+true | false
+
+
+False
+
+
+
+
+autoMappingBehavior
+
+
+Specifies if",FALSE,Sets default value for useGeneratedKeys to FALSE,"useGeneratedKeys, false",org/apache/ibatis/builder/xml/XMLConfigBuilder.java:253,constant-argument,concrete-value,VDS
+mybatis-3.5.5,MYB-5,configuration.html.json,"should automatically map columns
+to fields/properties.
+NONE disables auto-mapping.
+PARTIAL will only auto-map results
+with no nested result mappings",NONE disables auto-mapping.,autoMappingBehavior,"autoMappingBehavior, NONE",org/apache/ibatis/executor/resultset/DefaultResultSetHandler.java:457,binary-comparison,value-comparison,VDS
+mybatis-3.5.5,MYB-6,configuration.html.json,"or otherwise).
+
+
+NONE, PARTIAL, FULL
+
+
+PARTIAL
+
+
+
+
+autoMappingUnknownColumnBehavior",PARTIAL,Sets default value for autoMappingBehavior to PARTIAL,"autoMappingBehavior, PARTIAL",org/apache/ibatis/builder/xml/XMLConfigBuilder.java:245,constant-argument,concrete-value,VDS
+mybatis-3.5.5,MYB-7,configuration.html.json,"the database.
+
+
+Any positive integer
+
+
+Not Set (null)
+
+
+
+
+defaultFetchSize
+
+
+Sets the driver",Not Set (null),defaultStatementTimeout,"defaultStatementTimeout, null",org/apache/ibatis/builder/xml/XMLConfigBuilder.java:255,constant-argument,concrete-value,VDS
+mybatis-3.5.5,MYB-8,configuration.html.json,"configured in any
+mapper under this configuration.
+
+
+true | false
+
+
+true
+
+
+
+
+lazyLoadingEnabled",true | false,Checks that the value of cacheEnabled is one of true | false,"cacheEnabled, true, false",org/apache/ibatis/session/Configuration.java:112,assign-constant,categorical-value,VDS
+mybatis-3.5.5,MYB-9,configuration.html.json,"ame SqlSession.
+
+
+SESSION | STATEMENT
+
+
+SESSION
+
+
+
+
+jdbcTypeForNull
+
+
+Specifies the JDB",SESSION,localCacheScope,"localCacheScope, SESSION",org/apache/ibatis/builder/xml/XMLConfigBuilder.java:260,constant-argument,concrete-value,VDS
+rhino-1.6R5,RHI-1,ECMA-262-3.txt,"The following characters are considered to be white space:
+
+Code Point Value | Name | Formal Name
+\u0009 | Tab | <TAB>
+\u000B | Vertical Tab | <VT>
+\u000C | Form Feed | <FF>
+\u0020 | Space | <SP>
+\u00A0 | No-break space | <NBSP>
+Other category “Zs” | Any other Unicode “space separator” | <USP>",\u0009 Tab <TAB> \u000B Vertical Tab <VT> \u000C Form Feed <FF> \u0020 Space <SP> \u00A0 No-break space <NBSP> Other category “Zs” Any other Unicode <USP> “space separator”,"WhiteSpace choices are: Tab, Vertical Tab, Form Feed, Space, NBSP, Any unicode “Z”","characters, \u0009 Tab <TAB>, \u000B Vertical Tab <VT>, \u000C Form Feed <FF>, \u0020 Space <SP>, \u00A0 No-break space <NBSP>, Other category “Zs”, Any other Unicode <USP> “space separator”","src/org/mozilla/javascript/TokenStream.java:838,840,841",equals-or-chain,categorical-value,CDS
+rhino-1.6R5,RHI-10,ECMA-262-3.txt,"When the [[Delete]] method of O is called with property name P, the following steps are taken:
+...
+2. If the property has the DontDelete attribute, return false.","the property has the DontDelete attribute,",Property.DontDelete = true,"property DontDelete attribute, has",src/org/mozilla/javascript/IdScriptableObject.java:241,binary-flag-check,dual-value-comparison,CDS
+rhino-1.6R5,RHI-11,ECMA-262-3.txt,"GetValue (V)
+...
+3. If Result(2) is null, throw a ReferenceError exception.","Result(2) is null,",Reference.base is null,"GetBase, is null",src/org/mozilla/javascript/ScriptRuntime.java:1569,binary-comparison,dual-value-comparison,CDS
+rhino-1.6R5,RHI-12,ECMA-262-3.txt,"The operator ToBoolean converts its argument to a value of type Boolean according to the following table:
+...
+Number | The result is false if the argument is +0, −0, or NaN; otherwise the result is true.","the argument is +0,",arg == +0,"ToBoolean argument, +0",src/org/mozilla/javascript/Interpreter.java:3980,binary-comparison,value-comparison,CDS
+rhino-1.6R5,RHI-13,ECMA-262-3.txt,"The operator ToBoolean converts its argument to a value of type Boolean according to the following table:
+...
+Number | The result is false if the argument is +0, −0, or NaN; otherwise the result is true.","−0,",arg == -0,"ToBoolean argument, −0",src/org/mozilla/javascript/IRFactory.java:1354,binary-comparison,value-comparison,CDS
+rhino-1.6R5,RHI-14,ECMA-262-3.txt,"The operator ToBoolean converts its argument to a value of type Boolean according to the following table:
+...
+Number | The result is false if the argument is +0, −0, or NaN; otherwise the result is true.",NaN;,arg = NaN,"ToBoolean argument, NaN",src/org/mozilla/javascript/Interpreter.java:3985,self-comparison,value-comparison,CDS
+rhino-1.6R5,RHI-15,ECMA-262-3.txt,"The operator ToBoolean converts its argument to a value of type Boolean according to the following table:
+...
+Undefined | false",Undefined,arg == Undefined,"ToBoolean argument, Undefined",src/org/mozilla/javascript/Interpreter.java:3981,binary-comparison,value-comparison,CDS
+rhino-1.6R5,RHI-16,ECMA-262-3.txt,"The operator ToNumber converts its argument to a value of type Number according to the following table:
+...
+Undefined | NaN",Undefined,arg = Undefined,"ToNumber argument, Undefined",src/org/mozilla/javascript/ScriptRuntime.java:279,binary-comparison,value-comparison,CDS
+rhino-1.6R5,RHI-17,ECMA-262-3.txt,"The operator ToNumber converts its argument to a value of type Number according to the following table:
+...
+The result is 1 if the argument is true. The result is +0 if the argument is false.",the argument is true.,arg = true,"ToNumber argument, true",src/org/mozilla/javascript/ScriptRuntime.java:284,boolean-property,dual-value-comparison,CDS
+rhino-1.6R5,RHI-18,ECMA-262-3.txt,"The operator ToInteger converts its argument to an integral numeric value. This operator functions as
+follows:
+...
+2. If Result(1) is NaN, return +0.","Result(1) is NaN,",ResultOfToNumber is NaN,"result ToNumber, is NaN",src/org/mozilla/javascript/ScriptRuntime.java:938,self-comparison,dual-value-comparison,CDS
+rhino-1.6R5,RHI-19,ECMA-262-3.txt,"The operator ToInteger converts its argument to an integral numeric value. This operator functions as
+follows:
+...
+3. If Result(1) is +0, −0, +∞, or −∞, return Result(1).",#ERROR!,ResultOfToNumber == +Infinity,"result ToNumber, +infinity",src/org/mozilla/javascript/ScriptRuntime.java:941-943,binary-comparison,value-comparison,CDS
+rhino-1.6R5,RHI-2,ECMA-262-3.txt,"Because a single-line comment can contain any character except a LineTerminator character, and because
+of the general rule that a token is always as long as possible, a single-line comment always consists of all
+characters from the // marker to the end of the line. However, the LineTerminator at the end of the line is
+not considered to be part of the single-line comment; it is recognised separately by the lexical grammar and
+becomes part of the stream of input elements for the syntactic grammar. This point is very important,
+because it implies that the presence or absence of single-line comments does not affect the process of
+automatic semicolon insertion (7.9).","any character except a LineTerminator character,",CharacterInComment != line terminator,"LineTerminator, character",src/org/mozilla/javascript/TokenStream.java:1277,binary-comparison,value-comparison,CDS
+rhino-1.6R5,RHI-20,ECMA-262-3.txt,"The operator ToString converts its argument to a value of type String according to the following table:
+...
+Undefined | “undefined”",Undefined,arg == Undefined,"ToString argument, Undefined",src/org/mozilla/javascript/ScriptRuntime.java:663,binary-comparison,value-comparison,CDS
+rhino-1.6R5,RHI-21,ECMA-262-3.txt,"The operator ToString converts its argument to a value of type String according to the following table:
+...
+3. If m is less than zero, return the string concatenation of the string ""-"" and ToString(−m).","m is less than zero,",Number < 0,"number m, 0",src/org/mozilla/javascript/DToA.java:1262,boolean-property,value-comparison,CDS
+rhino-1.6R5,RHI-3,ECMA-262-3.txt,"The following tokens are ECMAScript keywords and may not be used as identifiers in ECMAScript programs.
+
+Keyword :: one of: break, else, new, var, case, finally, return, void, catch, for, switch, while, continue, function, this, with, default, if, throw, delete, in, try, do, instanceof, typeof",Keyword :: one of break else new var case finally return void catch for switch while continue function this with default if throw delete in try do instanceof typeof,"Keyword choices are: break, else, new, var, case, finally, return, void, catch, for, switch, while, continue, function, this, with, default, if, throw, delete, in, try, do, instanceof, typeof","Keyword, break, else, new, var, case, finally, return, void, catch, for, switch, while, continue, function, this, with, default, if, throw, delete, in, try, do, instanceof, typeof",src/org/mozilla/javascript/TokenStream.java:188,switch-len-char,categorical-value,CDS
+rhino-1.6R5,RHI-4,ECMA-262-3.txt,"The value of the Boolean literal true is a value of the Boolean type, namely true.",namely true.,"Choices for boolean are: true, false","boolean, true, false",src/org/mozilla/javascript/TokenStream.java:188-278,switch-len-char,categorical-value,CDS
+rhino-1.6R5,RHI-5,ECMA-262-3.txt,"The Undefined type has exactly one value, called undefined. Any variable that has not been assigned a value has the value undefined.",Any variable that has not been assigned a value,Variable default value is “Undefined”,"value, Undefined",src/org/mozilla/javascript/ScriptRuntime.java:2822-2824,constant-argument,concrete-value,CDS
+rhino-1.6R5,RHI-6,ECMA-262-3.txt,"When the [[Put]] method of O is called with property P and value V, the following steps are taken:
+...
+3. If O doesn’t have a property with name P, go to step 6.","O doesn’t have a property with name P,",Object has no property P,"property name P, doesn't have",src/org/mozilla/javascript/ScriptableObject.java:224,null-check,dual-value-comparison,CDS
+rhino-1.6R5,RHI-7,ECMA-262-3.txt,"When the [[CanPut]] method of O is called with property P, the following steps are taken:
+...
+2. If the property has the ReadOnly attribute, return false.","the property has the ReadOnly attribute,",Property.ReadOnly = true,"property ReadOnly attribute, has",src/org/mozilla/javascript/IdScriptableObject.java:219,binary-flag-check,dual-value-comparison,CDS
+rhino-1.6R5,RHI-8,ECMA-262-3.txt,"When the [[CanPut]] method of O is called with property P, the following steps are taken:
+...
+4. If the [[Prototype]] of O is null, return true.","the [[Prototype]] of O is null,",Object.prototype = null,"Prototype O, is null",src/org/mozilla/javascript/ScriptableObject.java:1566,null-check,dual-value-comparison,CDS
+rhino-1.6R5,RHI-9,ECMA-262-3.txt,"When the [[HasProperty]] method of O is called with property name P, the following steps are taken:
+...
+2. If the [[Prototype]] of O is null, return false.","the [[Prototype]] of O is null,",Object.prototype = null,"Prototype O, is null",src/org/mozilla/javascript/ScriptableObject.java:1566,null-check,dual-value-comparison,CDS
+shardingsphere-5.0.0-rc1,SHS-1,user-manual__shardingsphere-jdbc__configuration__built-in-algorithm__keygen.en.md,"The unique ID for working machine | 0 |
+| max.tolerate.time.difference.milliseconds (?) | long | The max tolerate time for different server's time difference in milliseconds | 10 milliseconds |
+| max.vibration.offset (?) | int | The max upper limit value of vibra",max.tolerate.time.difference.milliseconds (?) | long | The max tolerate time for different server's time difference in milliseconds | 10 milliseconds,Sets default value of max.tolerate.time.difference.milliseconds to 10,"max.tolerate.time.difference.milliseconds, 10 milliseconds",org/apache/shardingsphere/sharding/algorithm/keygen/SnowflakeKeyGenerateAlgorithm.java:66,assign-constant,concrete-value,VDS
+shardingsphere-5.0.0-rc1,SHS-10,user-manual__shardingsphere-jdbc__configuration__props.en.md,"| false |
+| executor.size (?) | int | The max thread size of worker group to execute SQL. One ShardingSphereDataSource will use a independent thread pool, it does not share thread pool even different data source in same JVM. | infinite |
+| max.connections.size.per.query (?) | int | Max opened connection size for each q","executor.size (?) | int | The max thread size of worker group to execute SQL. One ShardingSphereDataSource will use a independent thread pool, it does not share thread pool even different data source in same JVM. | infinite",Sets default value of executor.size to “infinite”,"executor.size, infinite",org/apache/shardingsphere/infra/config/properties/ConfigurationPropertyKey.java:49,constant-argument,concrete-value,VDS
+shardingsphere-5.0.0-rc1,SHS-11,user-manual__shardingsphere-jdbc__configuration__props.en.md,"n same JVM. | infinite |
+| max.connections.size.per.query (?) | int | Max opened connection size for each query. | 1 |
+| check.table.metadata.enabled (?) | boolean | Whether validate table meta d",max.connections.size.per.query (?) | int | Max opened connection size for each query. | 1,Sets default value of max.connections.size.per.query to 1,"max.connections.size.per.query, 1",org/apache/shardingsphere/infra/config/properties/ConfigurationPropertyKey.java:54,constant-argument,concrete-value,VDS
+shardingsphere-5.0.0-rc1,SHS-12,user-manual__shardingsphere-proxy__configuration__props.en.md,"n same JVM. | infinite |
+| max.connections.size.per.query (?) | int | Max opened connection size for each query. | 1 |
+| check.table.metadata.enabled (?) | boolean | Whether validate table meta da",max.connections.size.per.query (?) | int | Max opened connection size for each query. | 1,Sets default value of max.connections.size.per.query to 1,"max.connections.size.per.query, 1",org/apache/shardingsphere/infra/config/properties/ConfigurationPropertyKey.java:54,constant-argument,concrete-value,VDS
+shardingsphere-5.0.0-rc1,SHS-13,user-manual__shardingsphere-scaling__build.en.md,"------------------------------------------------------------------------------- | ------------- |
+| port | Listening port of HTTP server | 8888 |
+| blockQueueSize | Queue size of data transmission channel",port | Listening port of HTTP server | 8888,Sets default value of port to 8888,"port, 8888",org/apache/shardingsphere/scaling/core/config/ServerConfiguration.java:32,assign-constant,concrete-value,VDS
+shardingsphere-5.0.0-rc1,SHS-14,user-manual__shardingsphere-scaling__build.en.md,"timeout(ms) | 1000 |
+| workerThread | Worker thread pool size, the number of migration task threads allowed to run concurrently | 30 |","workerThread | Worker thread pool size, the number of migration task threads allowed to run concurrently | 30",,"workerThread, 30",org/apache/shardingsphere/scaling/core/config/ServerConfiguration.java:38,assign-constant,concrete-value,VDS
+shardingsphere-5.0.0-rc1,SHS-2,user-manual__shardingsphere-jdbc__configuration__java-api__governance.en.md,"-------- | ----------- | ---------------------------------------------- | --------------------- |
+| digest (?) | String | Connect to authority tokens in registry center | No need for authority |
+| operationTimeoutMilliseconds (?) | int | The operation timeout milliseconds",digest (?) | String | Connect to authority tokens in registry center | No need for authority,Sets default value of digest to “no need for authority”,"digest, no need for authority",org/apache/shardingsphere/orchestration/center/instance/ZookeeperPropertyKey.java:54,constant-argument,concrete-value,VDS
+shardingsphere-5.0.0-rc1,SHS-3,user-manual__shardingsphere-jdbc__configuration__java-api__governance.en.md,"| String | Connect to authority tokens in registry center | No need for authority |
+| operationTimeoutMilliseconds (?) | int | The operation timeout milliseconds | 500 milliseconds |
+| maxRetries (?) | int | The maximum retry count",operationTimeoutMilliseconds (?) | int | The operation timeout milliseconds | 500 milliseconds,Sets default value of operationTimeoutMilliseconds to 500,"operationTimeoutMilliseconds, 500",org/apache/shardingsphere/orchestration/center/instance/ZookeeperPropertyKey.java:49,constant-argument,concrete-value,VDS
+shardingsphere-5.0.0-rc1,SHS-4,user-manual__shardingsphere-jdbc__configuration__java-api__governance.en.md,"onds (?) | int | The operation timeout milliseconds | 500 milliseconds |
+| maxRetries (?) | int | The maximum retry count | 3 |
+| retryIntervalMilliseconds (?) | int | The retry interval millise",maxRetries (?) | int | The maximum retry count | 3,Sets default value of maxRetries to 3,"maxRetries, 3",org/apache/shardingsphere/orchestration/center/instance/ZookeeperPropertyKey.java:39,constant-argument,concrete-value,VDS
+shardingsphere-5.0.0-rc1,SHS-5,user-manual__shardingsphere-jdbc__configuration__java-api__governance.en.md,"| --------------------- | ----------- | ------------------------------------- | --------------- |
+| timeToLiveSeconds (?) | long | Time to live seconds for data persist | 30 seconds |
+
+Apollo Properties Configuration
+
+| *Name* | *Data Type* | *Description*",timeToLiveSeconds (?) | long | Time to live seconds for data persist | 30 seconds,Sets default value of timeToLiveSeconds to 30,"timeToLiveSeconds, 30",org/apache/shardingsphere/orchestration/center/instance/EtcdPropertyKey.java:34,constant-argument,concrete-value,VDS
+shardingsphere-5.0.0-rc1,SHS-6,user-manual__shardingsphere-jdbc__configuration__java-api__governance.en.md,"|
+| ------------------ | ----------- | ---------------------------- | --------------------- |
+| appId (?) | String | Apollo appId | APOLLO_SHARDINGSPHERE |
+| env (?) | String | Apollo env | DEV |
+| clu",appId (?) | String | Apollo appId | APOLLO_SHARDINGSPHERE,Sets default value of appId to APOLLO_SHARDINGSPHERE,"appId, APOLLO_SHARDINGSPHERE",org/apache/shardingsphere/orchestration/center/instance/ApolloPropertyKey.java:36,constant-argument,concrete-value,VDS
+shardingsphere-5.0.0-rc1,SHS-7,user-manual__shardingsphere-jdbc__configuration__java-api__governance.en.md,"|
+| administrator (?) | String | Apollo administrator | Empty |
+| token (?) | String | Apollo token | Empty |
+| portalUrl (?) | String | Apollo portalUrl | Empty",token (?) | String | Apollo token | Empty,,"token, """"",org/apache/shardingsphere/orchestration/center/instance/ApolloPropertyKey.java:56,constant-argument,concrete-value,VDS
+shardingsphere-5.0.0-rc1,SHS-8,user-manual__shardingsphere-jdbc__configuration__java-api__governance.en.md,"ue* |
+| ----------- | ----------- | ------------- | ----------------------------- |
+| group (?) | String | group | SHARDING_SPHERE_DEFAULT_GROUP |
+| timeout (?) | long | timeout | 3000 milliseconds |
+
+### Cluster
+
+*Conf",group (?) | String | group | SHARDING_SPHERE_DEFAULT_GROUP,Sets the default value of NacosProperties.group to “SHARDING_SPHERE_DEFAULT_GROUP”,"group, SHARDING_SPHERE_DEFAULT_GROUP",org/apache/shardingsphere/orchestration/center/instance/NacosPropertyKey.java:34,assign-constant,concrete-value,VDS
+shardingsphere-5.0.0-rc1,SHS-9,user-manual__shardingsphere-jdbc__configuration__java-api__governance.en.md,"----------------- |
+| group (?) | String | group | SHARDING_SPHERE_DEFAULT_GROUP |
+| timeout (?) | long | timeout | 3000 milliseconds |
+
+### Cluster
+
+*Configuration Entrance*
+
+Class name：org.apache.shardingsphere.cluster.",timeout (?) | long | timeout | 3000 milliseconds,,"timeout, 3000 milliseconds",org/apache/shardingsphere/orchestration/center/instance/NacosPropertyKey.java:39,constant-argument,concrete-value,VDS
+skywalking-8.0.1,SKY-1,en__setup__service-agent__java-agent__README.md,", this needs backend extensions, only basic match auth provided in default implementation.|Not set|
+`agent.span_limit_per_segment`|The max number of spans in a single segment. Through this config item, SkyWalking keep your application memory cost estimated.|300 |
+`agent.ignore_suffix`|If the operation name of the first span is included in this set, this segme","`agent.span_limit_per_segment`|The max number of spans in a single segment. Through this config item, SkyWalking keep your application memory cost estimated.|300",Sets default value of agent.span_limit_per_segment to 300,"agent.span_limit_per_segment, 300",org/apache/skywalking/apm/agent/core/conf/Config.java:68,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-10,en__setup__service-agent__java-agent__README.md,". {theSkywalkingAgentJarDir} is the directory where the skywalking agent jar file is located |`""""`|
+`logging.pattern `|logging format. There are all conversion specifiers: <br>&nbsp;&nbsp;* `%level` means log level. <br>&nbsp;&nbsp;* `%timestamp` means now of time with format `yyyy-MM-dd HH:mm:ss:SSS`.<br>&nbsp;&nbsp;* `%thread` means name of current thread.<br>&nbsp;&nbsp;* `%msg` means some message which user logged. <br>&nbsp;&nbsp;* `%class` means SimpleName of TargetClass. <br>&nbsp;&nbsp;* `%throwable` means a throwable which user called. <br>&nbsp;&nbsp;* `%agent_name` means `agent.service_name` |`%level %timestamp %thread %class : %msg %throwable`|
+`logging.max_file_size`|The max size of log file. If the size is bigger than this, archive the curr",`logging.pattern `|logging format. There are all conversion specifiers: <br>&nbsp;&nbsp;* `%level` means log level. <br>&nbsp;&nbsp;* `%timestamp` means now of time with format `yyyy-MM-dd HH:mm:ss:SSS`.<br>&nbsp;&nbsp;* `%thread` means name of current thread.<br>&nbsp;&nbsp;* `%msg` means some message which user logged. <br>&nbsp;&nbsp;* `%class` means SimpleName of TargetClass. <br>&nbsp;&nbsp;* `%throwable` means a throwable which user called. <br>&nbsp;&nbsp;* `%agent_name` means `agent.service_name` |`%level %timestamp %thread %class : %msg %throwable`|,Sets default value of logging.pattern to “`%level %timestamp %thread %class : %msg %throwable”,"logging.pattern, %level %timestamp %thread %class : %msg %throwable",org/apache/skywalking/apm/agent/core/conf/Config.java:231,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-11,en__setup__service-agent__java-agent__README.md,"`|
+`buffer.channel_size`|The buffer channel size.|`5`|
+`buffer.buffer_size`|The buffer size.|`300`|
+`profile.active`|If true, skywalking agent will enable profile when user create a new profile task. Otherwise disable profile.|`true`|
+`profile.max_parallel`|Parallel monitor segment count|`5`|
+`profile.duration`|Max monitor segment","`profile.active`|If true, skywalking agent will enable profile when user create a new profile task. Otherwise disable profile.|`true`|",Sets default value of profile.active to “true”,"profile.active, true",org/apache/skywalking/apm/agent/core/conf/Config.java:150,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-12,en__setup__service-agent__java-agent__README.md,"task. Otherwise disable profile.|`true`|
+`profile.max_parallel`|Parallel monitor segment count|`5`|
+`profile.duration`|Max monitor segment time(minutes), if current segment monitor time out of limit, then stop it.|`10`|
+`profile.dump_max_stack_depth`|Max dump thread stack depth|`500`|
+`profile.snapshot_transport_buf","`profile.duration`|Max monitor segment time(minutes), if current segment monitor time out of limit, then stop it.|`10`",Sets default value of profile.duration to 10,"profile.duration, 10",org/apache/skywalking/apm/agent/core/conf/Config.java:160,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-13,en__setup__service-agent__java-agent__README.md,"pth|`500`|
+`profile.snapshot_transport_buffer_size`|Snapshot transport to backend buffer size|`50`|
+`plugin.peer_max_length `|Peer maximum description limit.|`200`|
+`plugin.mongodb.trace_param`|If true, trace all the parameters in MongoDB access, default is false.",`plugin.peer_max_length `|Peer maximum description limit.|`200`|,Sets default value of plugin.peer_max_length to 200,"plugin.peer_max_length, 200",org/apache/skywalking/apm/agent/core/conf/Config.java:239,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-14,en__setup__service-agent__java-agent__README.md,"sport to backend buffer size|`50`|
+`plugin.peer_max_length `|Peer maximum description limit.|`200`|
+`plugin.mongodb.trace_param`|If true, trace all the parameters in MongoDB access, default is false. Only trace the operation, not includ","`plugin.mongodb.trace_param`|If true,",Checks that plugin.mongodb.trace_param is “true”,"plugin.mongodb.trace_param, true",org/apache/skywalking/apm/plugin/mongodb/v3/support/MongoSpanHelper.java:40,boolean-property,dual-value-comparison,VDS
+skywalking-8.0.1,SKY-15,en__setup__service-agent__java-agent__README.md,"ers in MongoDB access, default is false. Only trace the operation, not include parameters.|`false`|
+`plugin.mongodb.filter_length_limit`|If set to positive number, the `WriteRequest.params` would be truncated to this length, otherwise it would be completely saved, which may cause performance problem.|`256`|
+`plugin.elasticsearch.trace_dsl`|If true, trace all the DSL(Domain Specific Language) in ElasticSea","`plugin.mongodb.filter_length_limit`|If set to positive number, the `WriteRequest.params` would be truncated to this length, otherwise it would be completely saved, which may cause performance problem.|`256`|",Sets default value of plugin.mongodb.filter_length_limit is 256,"plugin.mongodb.filter_length_limit, 256",org/apache/skywalking/apm/agent/core/conf/Config.java:254,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-16,en__setup__service-agent__java-agent__README.md,"to this length, otherwise it would be completely saved, which may cause performance problem.|`256`|
+`plugin.elasticsearch.trace_dsl`|If true, trace all the DSL(Domain Specific Language) in ElasticSearch access, default is false.|`false`|
+`plugin.springmvc.use_qualified_name_as_endpoint_name`|If true, the fully qualified metho","`plugin.elasticsearch.trace_dsl`|If true, trace all the DSL(Domain Specific Language) in ElasticSearch access, default is false.",Sets default value of plugin.elasticsearch.trace_dsl to “false”,"plugin.elasticsearch.trace_dsl, false",org/apache/skywalking/apm/agent/core/conf/Config.java:261,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-17,en__setup__service-agent__java-agent__README.md,"ethod name will be used as the endpoint name instead of the request URL, default is false.|`false`|
+`plugin.toolit.use_qualified_name_as_operation_name`|If true, the fully qualified method name will be used as the operation name instead of the given operation","`plugin.toolit.use_qualified_name_as_operation_name`|If true,",Checks that plugin.toolit.use_qualified_name_as_operation_name is “true”,"plugin.toolit.use_qualified_name_as_operation_name, true",org/apache/skywalking/apm/toolkit/activation/trace/TraceAnnotationMethodInterceptor.java:48,boolean-property,dual-value-comparison,VDS
+skywalking-8.0.1,SKY-18,en__setup__service-agent__java-agent__README.md,"to this length, otherwise it would be completely saved, which may cause performance problem.|`512`|
+`plugin.postgresql.trace_sql_parameters`|If set to true, the parameters of the sql (typically `java.sql.PreparedStatement`) would be collected.|`false`|
+`plugin.postgresql.sql_parameters_max_length`|If set to positive number, the `db.sql.parameters` w","`plugin.postgresql.trace_sql_parameters`|If set to true, the parameters of the sql (typically `java.sql.PreparedStatement`) would be collected.|`false`|",Sets default value of plugin.postgresql.trace_sql_parameters to “false”,"plugin.postgresql.trace_sql_parameters, false",org/apache/skywalking/apm/agent/core/conf/Config.java:328,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-19,en__setup__service-agent__java-agent__README.md,"ue, the parameters of the sql (typically `java.sql.PreparedStatement`) would be collected.|`false`|
+`plugin.postgresql.sql_parameters_max_length`|If set to positive number, the `db.sql.parameters` would be truncated to this length, otherwise it would be completely saved, which may cause performance problem.|`512`|
+`plugin.mariadb.trace_sql_parameters`|If set to true, the parameters of the sql (typically `java.","`plugin.postgresql.sql_parameters_max_length`|If set to positive number, the `db.sql.parameters` would be truncated to this length, otherwise it would be completely saved, which may cause performance problem.|`512`",Sets default value of plugin.postgresql.sql_parameters_max_length to 512,"plugin.postgresql.sql_parameters_max_length, 512",org/apache/skywalking/apm/agent/core/conf/Config.java:336,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-2,en__setup__service-agent__java-agent__README.md,"le segment. Through this config item, SkyWalking keep your application memory cost estimated.|300 |
+`agent.ignore_suffix`|If the operation name of the first span is included in this set, this segment should be ignored.|Not set|
+`agent.is_open_debugging_class`|If true, skywalking agent","`agent.ignore_suffix`|If the operation name of the first span is included in this set,",Checks that the name is included in the set,"operation name first span, included in set",org/apache/skywalking/apm/agent/core/context/ContextManagerExtendService.java:64,boolean-property,dual-value-comparison,VDS
+skywalking-8.0.1,SKY-20,en__setup__service-agent__java-agent__README.md,"ue, the parameters of the sql (typically `java.sql.PreparedStatement`) would be collected.|`false`|
+`plugin.mariadb.sql_parameters_max_length`|If set to positive number, the `db.sql.parameters` would be truncated to this length, otherwise it would be completely saved,","`plugin.mariadb.sql_parameters_max_length`|If set to positive number,",Checks that plugin.mariadb.sql_parameters_max_length is greater than zero,"plugin.mariadb.sql_parameters_max_length, 0",org/apache/skywalking/apm/plugin/jdbc/PreparedStatementParameterBuilder.java:71,binary-comparison,value-comparison,VDS
+skywalking-8.0.1,SKY-21,en__setup__service-agent__java-agent__README.md,"to this length, otherwise it would be completely saved, which may cause performance problem.|`512`|
+`plugin.solrj.trace_statement`|If true, trace all the query parameters(include deleteByIds and deleteByQuery) in Solr query request, default is false.|`false`|
+`plugin.solrj.trace_ops_params`|If true, trace all the operation parameters in Solr reque","`plugin.solrj.trace_statement`|If true, trace all the query parameters(include deleteByIds and deleteByQuery) in Solr query request, default is false.",Sets default value of plugin.solrj.trace_statement to false,"plugin.solrj.trace_statement, false",org/apache/skywalking/apm/agent/core/conf/Config.java:360,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-22,en__setup__service-agent__java-agent__README.md,"parameters(include deleteByIds and deleteByQuery) in Solr query request, default is false.|`false`|
+`plugin.solrj.trace_ops_params`|If true, trace all the operation parameters in Solr request, default is false.|`false`|
+`plugin.light4j.tra","`plugin.solrj.trace_ops_params`|If true,",Checks that plugin.solrj.trace_ops_params is “true”,"plugin.solrj.trace_ops_params, true",org/apache/skywalking/apm/plugin/solrj/SolrClientInterceptor.java:118,boolean-property,dual-value-comparison,VDS
+skywalking-8.0.1,SKY-23,en__setup__service-agent__java-agent__README.md,"parameters(include deleteByIds and deleteByQuery) in Solr query request, default is false.|`false`|
+`plugin.solrj.trace_ops_params`|If true, trace all the operation parameters in Solr request, default is false.|`false`|
+`plugin.light4j.trace_handler_chain`|If true, trace all middleware/business handlers that","`plugin.solrj.trace_ops_params`|If true, trace all the operation parameters in Solr request, default is false.",Default false,"plugin.solrj.trace_ops_params, false",org/apache/skywalking/apm/agent/core/conf/Config.java:365,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-24,en__setup__service-agent__java-agent__README.md,"ops_params`|If true, trace all the operation parameters in Solr request, default is false.|`false`|
+`plugin.light4j.trace_handler_chain`|If true, trace all middleware/business handlers that are part of the Light4J handler chain for a request.|false|
+`plugin.opgroup.*`|Support operation name customize group rules in different plugins. Read [Group r","`plugin.light4j.trace_handler_chain`|If true, trace all middleware/business handlers that are part of the Light4J handler chain for a request.|false|",Sets default value of plugin.light4j.trace_handler_chain to “false”,"plugin.light4j.trace_handler_chain, false",org/apache/skywalking/apm/agent/core/conf/Config.java:373,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-25,en__setup__service-agent__java-agent__README.md,"oup rules in different plugins. Read [Group rule supported plugins](op_name_group_rule.md)|Not set|
+`plugin.springtransaction.simplify_transaction_definition_name`|If true, the transaction definition name will be simplified.|false|
+`plugin.jdkthreading.threading_class_pr","`plugin.springtransaction.simplify_transaction_definition_name`|If true,",Checks that plugin.springtransaction.simplify_transaction_definition_name is “true”,"plugin.springtransaction.simplify_transaction_definition_name, true",org/apache/skywalking/apm/plugin/spring/transaction/GetTransactionMethodInterceptor.java:65,boolean-property,dual-value-comparison,VDS
+skywalking-8.0.1,SKY-26,en__setup__service-agent__java-agent__README.md,"activate implicitly in the profiled trace. | `false` |
+`plugin.http.http_params_length_threshold`| When `COLLECT_HTTP_PARAMS` is enabled, how many characters to keep and send to the OAP backend, use negative values to keep and send the","When `COLLECT_HTTP_PARAMS` is enabled,",Checks that COLLECT_HTTP_PARAMS is enabled,"COLLECT_HTTP_PARAMS, enabled",org/apache/skywalking/apm/plugin/spring/mvc/commons/interceptor/AbstractMethodInterceptor.java:111,boolean-property,dual-value-comparison,VDS
+skywalking-8.0.1,SKY-27,en__setup__service-agent__java-agent__README.md,"end the complete parameters, NB. this config item is added for the sake of performance. | `1024` |
+`correlation.element_max_number`|Max element count of the correlation context.|`3`|
+`correlation.value_max_length`|Max value length of correlation context element.|`128`|
+
+## Option",`correlation.element_max_number`|Max element count of the correlation context.|`3`,Sets the default value of correlation.element_max_number to 3,"correlation.element_max_number, 3",org/apache/skywalking/apm/agent/core/conf/Config.java:408,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-3,en__setup__service-agent__java-agent__README.md,"g` folder. SkyWalking team may ask for these files in order to resolve compatible problem.|Not set|
+`agent.instance_name` |Instance name is the identity of an instance, should be unique in the service. If empty, SkyWalking agent will generate an 32-bit uuid. Default, use `UUID`@`hostname` as the instance name. Max length is 50(UTF-8 char)|`""""`|
+`agent.instance_properties[key]=value` | Add service instance custom properties.","`agent.instance_name` |Instance name is the identity of an instance, should be unique in the service. If empty, SkyWalking agent will generate an 32-bit uuid. Default, use `UUID`@`hostname` as the instance name. Max length is 50(",Enforces maximum length of agent.instance_name field to 50,"agent.instance_name, 50",org/apache/skywalking/apm/util/ConfigInitializer.java:78,binary-comparison,value-comparison,VDS
+skywalking-8.0.1,SKY-4,en__setup__service-agent__java-agent__README.md,")|`""""`|
+`agent.instance_properties[key]=value` | Add service instance custom properties. | Not set|
+`agent.cause_exception_depth`|How depth the agent goes, when log all cause exceptions.|`5`|
+`agent.force_reconnection_period `|Force reconnection period of grpc, based on grpc_channel_check_i","`agent.cause_exception_depth`|How depth the agent goes, when log all cause exceptions.|`5`|",Sets default value of agent.cause_exception_depth to 5,"agent.cause_exception_depth, 52",org/apache/skywalking/apm/agent/core/conf/Config.java:92,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-5,en__setup__service-agent__java-agent__README.md,"ot set|
+`agent.cause_exception_depth`|How depth the agent goes, when log all cause exceptions.|`5`|
+`agent.force_reconnection_period `|Force reconnection period of grpc, based on grpc_channel_check_interval.|`1`|
+`agent.operation_name_threshold `|The operationName max length, setting this value > 190 is not rec","`agent.force_reconnection_period `|Force reconnection period of grpc, based on grpc_channel_check_interval.|`1`|",Sets default value of agent.force_reconnection_period to 1,"agent.force_reconnection_period, 1",org/apache/skywalking/apm/agent/core/conf/Config.java:98,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-6,en__setup__service-agent__java-agent__README.md,"list size. |`10`|
+`collector.grpc_channel_check_interval`|grpc channel status check interval.|`30`|
+`collector.heartbeat_period`|agent heartbeat report period. Unit, second.|`30`|
+`collector.backend_service`|Collector SkyWalking trace receiver service addresses.|`127.0.0.1:11800","`collector.heartbeat_period`|agent heartbeat report period. Unit, second.|`30`|",Default 30,"collector.heartbeat_period, 30",org/apache/skywalking/apm/agent/core/conf/Config.java:126,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-7,en__setup__service-agent__java-agent__README.md,"meout`|How long grpc client will timeout in sending data to upstream. Unit is second.|`30` seconds|
+`collector.get_profile_task_interval`|Sniffer get profile task list interval.|`20`|
+`logging.level`|The log level. Default is debug.|`DEBUG`|
+`logging.file_name`|Log file name.|`skywa",`collector.get_profile_task_interval`|Sniffer get profile task list interval.|`20`|,Sets default value of collector.get_profile_task_interval to 20,"collector.get_profile_task_interval, 20",org/apache/skywalking/apm/agent/core/conf/Config.java:142,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-8,en__setup__service-agent__java-agent__README.md,"fer get profile task list interval.|`20`|
+`logging.level`|The log level. Default is debug.|`DEBUG`|
+`logging.file_name`|Log file name.|`skywalking-api.log`|
+`logging.output`| Log output. Default is FILE. Use CONSOLE means output to stdout. |`FILE`|
+`loggi",`logging.file_name`|Log file name.|`skywalking-api.log`|,Sets default value of logging.file_name to skywalking-api.log,"logging.file_name, skywalking-api.log",org/apache/skywalking/apm/agent/core/conf/Config.java:190,assign-constant,concrete-value,VDS
+skywalking-8.0.1,SKY-9,en__setup__service-agent__java-agent__README.md,"i.log`|
+`logging.output`| Log output. Default is FILE. Use CONSOLE means output to stdout. |`FILE`|
+`logging.dir`|Log files directory. Default is blank string, means, use ""{theSkywalkingAgentJarDir}/logs "" to output logs. {theSkywalkingAgentJarDir} is the d","`logging.dir`|Log files directory. Default is blank string,",Sets default value of logging.dir to blank string,"logging.dir, """"",org/apache/skywalking/apm/agent/core/conf/Config.java:198,assign-constant,concrete-value,VDS
+swarm-2.8.11,SWA-1,swarm_v2.txt,"The Japanese WIN format does not contain station or time zone information. This information can be
+provided through a configuration file that Swarm will prompt for when opening WIN files. By default,
+the file open dialog will filter on .config extension but the configuration file can be called anything and
+located anywhere. The first line of the file must contain the time zone, followed by the name for each
+channel in the files. If specified time zone is not valid it will default to ‘GMT’. If configuration file is not
+available or readable it will default to ‘UTC’. Abbreviations may work, but it is recommended to use the
+full time zone name (e.g. Americas/New_York, Atlantic/Reykjavik).","By default, the file open dialog will filter on .config extension",Dialog.fileFilter is “.config” by default,"file open dialog, .config extension",src/main/java/gov/usgs/volcanoes/swarm/data/FileDataSource.java:204,constant-argument,concrete-value,CDS
+swarm-2.8.11,SWA-10,swarm_v2.txt,"Spectra Options
+...
+Manual scale y-axis to scale y-axis manually.",Manual scale y-axis to scale y-axis manually.,ManualScaleYAxis.enabled = true,"Manual scale y-axis, to",lib/volcano-core/src/main/java/gov/usgs/volcanoes/core/legacy/plot/render/wave/SpectraRenderer.java:157,boolean-property,dual-value-comparison,CDS
+swarm-2.8.11,SWA-11,swarm_v2.txt,"Spectrogram Options
+...
+While SWARM will allow the maximum frequency to be set to any positive value greater than the minimum frequency, this value will adjust automatically if it is greater than the Nyquist frequency of the wave being manipulated.",it is greater than the Nyquist frequency of the wave being manipulated.,MaximumFrequency > NyquistFrequency,"maximum frequency, Nyquist frequency wave",src/main/java/gov/usgs/volcanoes/swarm/wave/WaveViewPanel.java:816,binary-comparison,value-comparison,CDS
+swarm-2.8.11,SWA-12,swarm_v2.txt,"Spectrogram Options
+...
+Log Power, if checked, will set the power scale to log mode.","Log Power, if checked,",LogPower.checked = true,"Log Power, checked",lib/volcano-core/src/main/java/gov/usgs/volcanoes/core/legacy/plot/render/wave/SpectraRenderer.java:123,boolean-property,dual-value-comparison,CDS
+swarm-2.8.11,SWA-13,swarm_v2.txt,"Spectrogram Options
+...
+Auto scale power to scale power automatically.",Auto scale power to scale power automatically.,AutoScalePower.enabled = true,"Auto scale power, to",lib/volcano-core/src/main/java/gov/usgs/volcanoes/core/legacy/plot/render/wave/SpectrogramRenderer.java:191,boolean-property,dual-value-comparison,CDS
+swarm-2.8.11,SWA-14,swarm_v2.txt,"Spectrogram Options
+...
+Power range to use if manual scale power is enabled. This determines the minimum and
+maximum to use on the color scale if power is scaled manually.",manual scale power is enabled.,ManualScalePower.enabled = true,"manual scale power, enabled",lib/volcano-core/src/main/java/gov/usgs/volcanoes/core/legacy/plot/render/wave/SpectrogramRenderer.java:191,boolean-property,dual-value-comparison,CDS
+swarm-2.8.11,SWA-15,swarm_v2.txt,"Butterworth Filter
+...
+Enabled checkbox will turn Butterworth filtering on and off.",Enabled checkbox,ButterworthFiltering.enabled = true,"Enabled, on",src/main/java/gov/usgs/volcanoes/swarm/wave/WaveViewPanel.java:1123,boolean-property,dual-value-comparison,CDS
+swarm-2.8.11,SWA-16,swarm_v2.txt,"Butterworth Filter
+...
+Zero phase shift option runs the specified filter both forward and backward. This eliminates any
+phase shift effects due to the filter at the expense of effectively doubling the filter order.",Zero phase shift option,ZeroPhaseShift.enabled = true,"Zero phase shift option, has",lib/volcano-core/src/main/java/gov/usgs/volcanoes/core/data/Wave.java:899,boolean-property,dual-value-comparison,CDS
+swarm-2.8.11,SWA-17,swarm_v2.txt,"When the
+button is enabled, users are able to make picks for P and S times, and coda start and end
+times in the wave and spectrogram view for each panel. To make a pick, right click over the desired pick
+time in the appropriate channel, go down the Pick menu, and select the desired pick type.
+Locating origin is not yet supported in Swarm.","the button is enabled,",PickModeIcon.enabled = true,"pick mode, enabled",src/main/java/gov/usgs/volcanoes/swarm/wave/WaveViewPanel.java:283,boolean-property,dual-value-comparison,CDS
+swarm-2.8.11,SWA-18,swarm_v2.txt,"When doing a P or S pick, users must traverse all the way down the menu tree to determine onset
+(Emergent or Impulsive), polarity, and weight (0 to 4) of the pick. The weight selected will be applied as
+the lower and upper uncertainty. The amount of time represented by each weight is dependent on each
+user’s pick settings. See section 6.2.3.16.2.3 for more information on pick settings. Once a pick is made,
+a vertical line will display over the pick time, along with a tag indicating the phase, onset, and polarity.
+The uncertainty times will be highlighted.","onset (Emergent or Impulsive),","Onset must be one of: Emergent, Impulsive","onset, Emergent, Impulsive",lib/volcano-core/src/main/java/gov/usgs/volcanoes/core/quakeml/Pick.java:38-46,if-chain,categorical-value,CDS
+swarm-2.8.11,SWA-19,swarm_v2.txt,"When doing a P or S pick, users must traverse all the way down the menu tree to determine onset
+(Emergent or Impulsive), polarity, and weight (0 to 4) of the pick. The weight selected will be applied as
+the lower and upper uncertainty. The amount of time represented by each weight is dependent on each
+user’s pick settings. See section 6.2.3.16.2.3 for more information on pick settings. Once a pick is made,
+a vertical line will display over the pick time, along with a tag indicating the phase, onset, and polarity.
+The uncertainty times will be highlighted.",weight (0 to 4),Pick.weight <= 4,"weight, 4",src/main/java/gov/usgs/volcanoes/swarm/event/PickSettings.java:73,binary-comparison,value-comparison,CDS
+swarm-2.8.11,SWA-2,swarm_v2.txt,"The Japanese WIN format does not contain station or time zone information. This information can be
+provided through a configuration file that Swarm will prompt for when opening WIN files. By default,
+the file open dialog will filter on .config extension but the configuration file can be called anything and
+located anywhere. The first line of the file must contain the time zone, followed by the name for each
+channel in the files. If specified time zone is not valid it will default to ‘GMT’. If configuration file is not
+available or readable it will default to ‘UTC’. Abbreviations may work, but it is recommended to use the
+full time zone name (e.g. Americas/New_York, Atlantic/Reykjavik).",configuration file is not available,ConfigurationFile.unavailable = true,"configuration file, not available",lib/volcano-core/src/main/java/gov/usgs/volcanoes/core/data/file/WinDataFile.java:205,null-check,dual-value-comparison,CDS
+swarm-2.8.11,SWA-20,swarm_v2.txt,"When Pick Mode is enabled, a Pick Menu is displayed to the right of the pick button. Un-toggling the
+pick button will hide the Pick Menu again.","Pick Mode is enabled,",PickMode.enabled = true,"Pick Mode, enabled",src/main/java/gov/usgs/volcanoes/swarm/wave/WaveClipboardFrame.java:283,boolean-property,dual-value-comparison,CDS
+swarm-2.8.11,SWA-21,swarm_v2.txt,"Users can provide input to Hypo71 locating algorithm in two ways, through clipboard picks or Hypo71
+input file. The recommended way to do earthquake locating is through picks in Swarm. Make at least 1
+pick in the clipboard to enable the Use Clipboard Picks option. In order to perform locating using picks,
+note the following:",at least 1 pick,AmountOfPicks > 0,"1, pick",src/main/java/gov/usgs/volcanoes/swarm/event/EventDialog.java:974,binary-comparison,value-comparison,CDS
+swarm-2.8.11,SWA-22,swarm_v2.txt,"Third Line
+If the clipboard is in Pick Mode, the third line will display:
+• S-P duration and distance, if P and S phases are picked.
+• Coda duration and magnitude, if coda start and end are picked.","the clipboard is in Pick Mode,",Clipboard.isInPickMode = true,"clipboard Pick Mode, is in",src/main/java/gov/usgs/volcanoes/swarm/wave/WaveViewPanel.java:640,boolean-property,dual-value-comparison,CDS
+swarm-2.8.11,SWA-23,swarm_v2.txt,"Clicking on
+at the bottom of the Data Chooser window will open real-time wave viewer. The white
+area to the right shows the lag between now and the last available data at the time of refresh (which
+occurs every two seconds.) It is possible to switch between views of 15, 30, 60, 120 (default), 180, 240,
+or 300 seconds. The time displayed is UTC. Each wave is in its own window.","120 (default),",Default View value is 120,"time of refresh, 120",src/main/java/gov/usgs/volcanoes/swarm/wave/WaveViewerFrame.java:78,assign-constant,concrete-value,CDS
+swarm-2.8.11,SWA-24,swarm_v2.txt,"Event Options
+...
+Event ratio – The minimum ratio between current and previous value to define event. I.e. current value >= (previous value * event ration)",current value >= (previous value * event ration).,CurrentValue >= previousValue * eventRatio,"previous value, event ration",lib/volcano-core/src/main/java/gov/usgs/volcanoes/core/data/RSAMData.java:202,binary-comparison,value-comparison,CDS
+swarm-2.8.11,SWA-25,swarm_v2.txt,"The comma-separated fields are defined as follows:
+...
+6. South latitude extent (-90 to 90)",South latitude extent (-90,SouthLatitudeExtent >= -90,"South latitude extent, -90",src/main/java/gov/usgs/volcanoes/swarm/map/MapSettingsDialog.java:286,binary-comparison,value-comparison,CDS
+swarm-2.8.11,SWA-3,swarm_v2.txt,"Other information shown:
+• Y-axis value if in Wave view
+• Frequency and Power in Spectra view
+• Frequency in Spectrogram view",in Wave view;,Window is in WaveView,"window Wave view, in",src/main/java/gov/usgs/volcanoes/swarm/wave/WaveViewPanel.java:613,binary-comparison,dual-value-comparison,CDS
+swarm-2.8.11,SWA-4,swarm_v2.txt,"Axes
+...
+X is the number of minutes to display along the bottom of the helicorder. Default is 15 minutes.",Default is 15 minutes.,Default value of Minutes is 15,"numbers to display, 15 minutes",src/main/java/gov/usgs/volcanoes/swarm/SwarmConfig.java:351,constant-argument,concrete-value,CDS
+swarm-2.8.11,SWA-5,swarm_v2.txt,"Other
+...
+Refresh is the number of seconds between attempts to refresh the helicorder with the latest data. The default value is 15.",The default value is 15.,Default value of Refresh is 15,"Refresh, 15",src/main/java/gov/usgs/volcanoes/swarm/heli/HelicorderViewerSettings.java:48,assign-constant,concrete-value,CDS
+swarm-2.8.11,SWA-6,swarm_v2.txt,"Wave Options
+...
+Remove bias will remove the mean value from the wave if on. It is enabled by default.",It is enabled by default.,RemoveBias default value is true,"Remove bias, enabled",src/main/java/gov/usgs/volcanoes/swarm/wave/WaveViewSettings.java:103,assign-constant,concrete-value,CDS
+swarm-2.8.11,SWA-7,swarm_v2.txt,"Spectra Options
+...
+While SWARM will allow the maximum frequency to be set to any positive value greater than the minimum frequency, this value will adjust automatically if it is greater than the Nyquist frequency of the wave being manipulated.",it is greater than the Nyquist frequency of the wave being manipulated.,MaximumFrequency > NyquistFrequency,"maximum frequency, Nyquist frequency wave",src/main/java/gov/usgs/volcanoes/swarm/wave/WaveViewPanel.java:816,binary-comparison,value-comparison,CDS
+swarm-2.8.11,SWA-8,swarm_v2.txt,"Spectra Options
+...
+Log Power, if checked, will set the power axis to log mode.","Log Power, if checked,",LogPower.checked = true,"Log Power, checked",src/main/java/gov/usgs/volcanoes/swarm/map/MapMiniPanel.java:829,boolean-property,dual-value-comparison,CDS
+swarm-2.8.11,SWA-9,swarm_v2.txt,"Spectra Options
+...
+Auto scale y-axis to scale y-axis automatically.",Auto scale y-axis to scale y-axis automatically.,AutoScaleYAxis.enabled = true,"Auto scale y-axis, to",lib/volcano-core/src/main/java/gov/usgs/volcanoes/core/legacy/plot/render/wave/SpectraRenderer.java:157,boolean-property,dual-value-comparison,CDS
+argouml-0.35.4,UML-1,manual.html.txt,"The titlebar of the window shows the following 4 parts of information, separated from each other by a dash...
+
+The current filename. If no filename for the project is set yet, then the titlebar shows ""Unititled""",no filename for the project is set,Checks that the current project has no filename set,"filename project, set",src/argouml-app/src/org/argouml/ui/ProjectBrowser.java:691,null-empty-check,dual-value-comparison,CDS
+argouml-0.35.4,UML-10,manual.html.txt,"In the Notations tab, you are able to set the following fields:
+...
+Show visibility (clear by default). If this is selected, then ArgoUML will show the visibility
+indicators in front of e.g. attributes in the diagram. In UML the notation is ""+"" for public, ""-"" for
+private, ""#"" for protected, and ""~"" for package. E.g. for an attribute, it may show: +newAttr :
+int.",Show visibility (clear by default).,Sets/Enforces the default value for 'Show visibility' to false,"Show visibility, clear",src/argouml-app/src/org/argouml/notation/NotationSettings.java:139,constant-argument,concrete-value,CDS
+argouml-0.35.4,UML-11,manual.html.txt,"In the Notations tab, you are able to set the following fields:
+...
+Show visibility (clear by default). If this is selected, then ArgoUML will show the visibility indicators in front of e.g. attributes in the diagram. In UML the notation is ""+"" for public, ""-"" for private, ""#"" for protected, and ""~"" for package. E.g. for an attribute, it may show: +newAttr : int.","this is selected,",Checks that 'Show visibility' is enabled,"Show visibility, selected",src/argouml-app/src/org/argouml/notation/providers/uml/AssociationEndNameNotationUml.java:236,boolean-property,dual-value-comparison,CDS
+argouml-0.35.4,UML-12,manual.html.txt,"In the Notations tab, you are able to set the following fields:
+...
+Show multiplicity (clear by default). If this is selected, then ArgoUML will show the multiplicity of e.g. attributes in the diagram. In UML notation, the multiplicity is shown between [], such as: +newAttr [0..*] : int",Show multiplicity (clear by default).,Sets/Enforces 'Show multiplicity' to be false by default,"Show multiplicity, clear",src/argouml-app/src/org/argouml/notation/NotationSettings.java:134,constant-argument,concrete-value,CDS
+argouml-0.35.4,UML-13,manual.html.txt,"In the Notations tab, you are able to set the following fields:
+...
+Show multiplicity (clear by default). If this is selected, then ArgoUML will show the multiplicity of e.g. attributes in the diagram. In UML notation, the multiplicity is shown between [], such as: +newAttr [0..*] : int","this is selected,",Checks that 'Show multiplicity' is enabled,"Show multiplicity, selected",src/argouml-app/src/org/argouml/notation/providers/uml/AttributeNotationUml.java:592,boolean-property,dual-value-comparison,CDS
+argouml-0.35.4,UML-14,manual.html.txt,"In the Notations tab, you are able to set the following fields:
+...
+Show properties (clear by default). If this is selected, then ArgoUML will show various properties between braces {}. E.g. for an attribute, it may show: +newAttr : int { frozen }.",Show properties (clear by default).,Sets/Enforces the default value for 'Show properties' to false,"Show properties, clear",src/argouml-app/src/org/argouml/notation/NotationSettings.java:136,constant-argument,concrete-value,CDS
+argouml-0.35.4,UML-15,manual.html.txt,"In the Notations tab, you are able to set the following fields:
+...
+Show properties (clear by default). If this is selected, then ArgoUML will show various properties between braces {}. E.g. for an attribute, it may show: +newAttr : int { frozen }.","this is selected,",Checks that 'Show properties' is enabled,"Show properties, selected",src/argouml-app/src/org/argouml/notation/providers/uml/AttributeNotationUml.java:614,boolean-property,dual-value-comparison,CDS
+argouml-0.35.4,UML-16,manual.html.txt,"In the Notations tab, you are able to set the following fields:
+...
+Show types and parameters (set by default). When this checkbox is unmarked, attributes in classes are shown without type indication, and operations are shown without parameters",Show types and parameters (set by default).,Checks that 'Show types and parameters' is enabled,"Show types and parameters, set",src/argouml-app/src/org/argouml/notation/providers/uml/AttributeNotationUml.java:601,boolean-property,dual-value-comparison,CDS
+argouml-0.35.4,UML-17,manual.html.txt,"In the Notations tab, you are able to set the following fields:
+...
+Default shadow width (set to 1 by default). ArgoUML is able to draw all elements on a dia-
+gram with a shadow, for esthetical reasons. Use this setting to adjust the size of the shadow, used
+when the modelelement is created. The details tab ""Presentation"" allows to set the shadow per
+modelelement, after they are created, but ArgoUML V0.22 does not retain this latter change after
+save and load.",Default shadow width (set to 1 by default).,Sets/Enforces the default value of 'Shadow width' to 1,"Default shadow width, 1","src/argouml-app/src/org/argouml/uml/diagram/DiagramSettings.java:223,224",constant-argument,concrete-value,CDS
+argouml-0.35.4,UML-18,manual.html.txt,"Discriminator
+
+Text box. The name of a discriminator for the specialization. UML 1.4 allows grouping of specializ-
+ations into a number of sets, on the basis of this value.
+
+The empty string “” is a valid entry (and the default) for this field.",(and the default) for this field.,Sets/Enforces the default value for 'Discriminator' to the empty string,"Discriminator,",src/argouml-app/src/org/argouml/uml/diagram/ui/FigGeneralization.java:174,assign-constant,concrete-value,CDS
+argouml-0.35.4,UML-19,manual.html.txt,"Visibility
+Radio box, with four entries public, private, protected, and package. Indicates whether the class is visible outside the namespace.","public, private, protected, and package.","Checks/Enforces value of visibility to be one of: public, private, protected, package","Visibility, public, private, protected, package",src/argouml-core-umlpropertypanels/src/org/argouml/core/propertypanels/model/GetterSetterManagerImpl.java:482-490,if-chain,categorical-value,CDS
+argouml-0.35.4,UML-2,manual.html.txt,"The titlebar of the window shows the following 4 parts of information, separated from each other by a dash.
+...
+An asterisk (*). This item is only present if the current project file is “dirty”, i.e. it is altered, but not yet saved. In other words, if the asterisk is absent, then the current file has not been altered.","the current project file is “dirty”,",Checks/Enforces that asterisk only appears when project is modified but not saved,"project file, dirty",src/argouml-app/src/org/argouml/ui/ProjectBrowser.java:702,boolean-property,dual-value-comparison,CDS
+argouml-0.35.4,UML-20,manual.html.txt,"Multiplicity
+Editable drop down selector with checkmark. The default value (1) is that there is one instance of
+this attribute for each instance of the class, i.e. it is a scalar. The drop down provides a number of
+commonly used specifications for non-scalar attributes.",The default value (1),Sets/Enforces default 'Multiplicity' to be 1,"Multiplicity, 1",src/argouml-core-umlpropertypanels/src/org/argouml/core/propertypanels/ui/UMLMultiplicityPanel.java:318,constant-argument,concrete-value,CDS
+argouml-0.35.4,UML-21,manual.html.txt,"Changeability
+Radio box, with entries addOnly, changeable, and frozen.","addOnly, changeable, and frozen.","Checks/Enforces that changeability is one of addOnly, changeable, and frozen","Changeability, addOnly, changeable, frozen","src/argouml-core-umlpropertypanels/src/org/argouml/core/propertypanels/model/GetterSetterManagerImpl.java:708,710,713",if-chain,categorical-value,CDS
+argouml-0.35.4,UML-22,manual.html.txt,"Visibility
+Radio box, with four entries public, private, protected, and package. Indicates whether
+the package is visible outside the package.","public, private, protected, and package","Checks/Enforces that the value of 'Visibility' is one of public, private, protected, package","visibility, public, private, protected, package",src/argouml-core-umlpropertypanels/src/org/argouml/core/propertypanels/model/GetterSetterManagerImpl.java:482-490,if-chain,categorical-value,CDS
+argouml-0.35.4,UML-3,manual.html.txt,"If the model has been altered (as indicated by the ""*"" in the titlebar of ArgoUML's window), then activating the ""Import XMI..."" function is potentionally not the user's intention, since it will erase the changes. Hence a confirmation dialog appears to allow the user to save his work first, or cancel the operation completely.",the model has been altered,Checks that the model has been altered,"model, altered",src/argouml-app/src/org/argouml/ui/ProjectBrowser.java:1476,boolean-property,dual-value-comparison,CDS
+argouml-0.35.4,UML-4,manual.html.txt,"The first of the two tabs is labeled General and is selected by button 1 click on its tab. It provides a
+combo box for the language selection (in V0.18 of ArgoUML only Java can be chosen), and the follow-
+ing selections:
+...
+Changed/new files only. If enabled (the default), only changed and new files are imported. If not all classes will be replaced.",enabled (the default),Sets/Enforces the default value for 'Changed/new files only' to enabled,"Changed/new files only, enabled",src/argouml-app/src/org/argouml/uml/reveng/Import.java:256,assign-constant,concrete-value,CDS
+argouml-0.35.4,UML-5,manual.html.txt,"The first of the two tabs is labeled General and is selected by button 1 click on its tab. It provides a
+combo box for the language selection (in V0.18 of ArgoUML only Java can be chosen), and the follow-
+ing selections:
+...
+Create diagrams from imported code. If you unselect this, then no diagrams are created, i.e. all data will only be visible in the explorer.","Create diagrams from imported code. If you unselect this,",Checks that 'create diagrams from existing code' is enabled,"Create diagrams from imported code, unselect",src/argouml-app/src/org/argouml/uml/reveng/ImportCommon.java:573,boolean-property,dual-value-comparison,CDS
+argouml-0.35.4,UML-6,manual.html.txt,"The first of the two tabs is labeled General and is selected by button 1 click on its tab. It provides a
+combo box for the language selection (in V0.18 of ArgoUML only Java can be chosen), and the follow-
+ing selections:
+...
+Minimise Class icons in diagrams. If enabled, then the attributes and operations compartiments will not be shown in the classes on the generated class diagrams. Note: This item is checked by default, and is overseen by many users, which are then surprised by the result.","Minimise Class icons in diagrams. If enabled,",Checks that 'Minimize Class icons in diagrams' is enabled,"Minimise Class icons in diagrams, enabled",src/argouml-app/src/org/argouml/uml/reveng/DiagramInterface.java:324,boolean-property,dual-value-comparison,CDS
+argouml-0.35.4,UML-7,manual.html.txt,"The first of the two tabs is labeled General and is selected by button 1 click on its tab. It provides a
+combo box for the language selection (in V0.18 of ArgoUML only Java can be chosen), and the follow-
+ing selections:
+...
+Minimise Class icons in diagrams. If enabled, then the attributes and operations compartiments will not be shown in the classes on the generated class diagrams. Note: This item is checked by default, and is overseen by many users, which are then surprised by the result.","This item is checked by default,",Sets/Enforces the default value for 'Minimise Class icons in diagrams' to true,"Minimise Class icons in diagrams, checked",src/argouml-app/src/org/argouml/uml/reveng/Import.java:258,assign-constant,concrete-value,CDS
+argouml-0.35.4,UML-8,manual.html.txt,"The Project Description field may contain any text that you need to describe the project. By default it
+is empty.",By default it is empty.,Sets/Enforces the default value for 'Project description' as empty,"Project Description, empty",src/argouml-app/src/org/argouml/kernel/ProjectImpl.java:210,assign-constant,concrete-value,CDS
+argouml-0.35.4,UML-9,manual.html.txt,"In the Notations tab, you are able to set the following fields:
+...
+Use guillemots (« ») for stereotypes (clear by default). By default ArgoUML uses pairs of less than and greater than (<< >>) characters for stereotypes. If this box is checked stereotypes on diagrams are shown between true guillemots (« »)",(clear by default).,Sets/Enforces the default value for 'Use guillemots' to false,"Use guillemots (« ») for stereotypes, clear",src/argouml-app/src/org/argouml/notation/NotationSettings.java:140,constant-argument,concrete-value,CDS
