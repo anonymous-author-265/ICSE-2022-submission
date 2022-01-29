@@ -6,7 +6,7 @@ version = '1.0'
 
 // Unpacks source code and textual artifacts of target systems used in experiments
 task unpackData(type: Copy) {
-    def dataDir = file('../../data')
+    def dataDir = file('../../data/target-system-data')
 
     // Must use a simple into call as base directory first
     into dataDir

@@ -1,0 +1,6 @@
+target
+src/test
+src/it/resources/com/sun/checkstyle/test
+src/it/resources/com/google/checkstyle/test
+src/it/java/com/sun/checkstyle/test
+src/it/java/com/google/checkstyle/test
