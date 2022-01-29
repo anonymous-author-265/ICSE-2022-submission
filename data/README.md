@@ -23,6 +23,8 @@
 
 Both source code artifacts (`doc-txt.zip`) and source code (`sources.zip`) of each system are found in each directory.
 
+Each directory also contains an `exclude.txt` file, which signals to Lasso which directories contain test files ans hsould be ignored.
+
 ## References
 
 [1] Florez, J.M., Moreno, L., Zhang, Z., Wei, S. and Marcus, A., 2021. An Empirical Study of Data Constraint Implementations in Java. arXiv preprint arXiv:2107.04720.

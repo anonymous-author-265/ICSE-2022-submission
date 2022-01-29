@@ -6,7 +6,7 @@
 
 ### Columns
 
-1. **Technique**: The Lasso-13 variation (Lasso-13Luc or Lasso13LSI) or baseline (Lucene, LSI) that produced the result.
+1. **Technique**: The Lasso-13 variation (Lasso-13Luc, Lasso-13TF-IDF, or Lasso13LSI) or baseline (Lucene, TF-IDF, LSI) that produced the result.
 
 2. **Project, Constraint ID, Data Set**: Constraint identification.
 
