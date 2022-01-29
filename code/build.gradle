@@ -1,0 +1,3 @@
+project(':Lasso:sample') {
+    apply plugin: 'java'
+}

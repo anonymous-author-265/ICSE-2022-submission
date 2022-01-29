@@ -1,0 +1,115 @@
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+
+version = '1.0'
+
+// Unpacks source code and textual artifacts of target systems used in experiments
+task unpackData(type: Copy) {
+    def dataDir = file('../../data')
+
+    // Must use a simple into call as base directory first
+    into dataDir
+
+    dataDir.traverse(
+            type: groovy.io.FileType.FILES,
+            maxDepth: 1,
+            nameFilter: ~/^(sources|docs-txt|binaries)\.zip$/
+    ) { zip ->
+        into(zip.parentFile.name) {
+            from zipTree(zip)
+        }
+    }
+}
+
+// Every time Lasso is compiled, the experimental data will be extracted if it hasn't been already
+compileJava {
+    dependsOn unpackData
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+sourceSets {
+    textProcessor {
+        java {
+            srcDir 'src/processor/java'
+        }
+    }
+
+    flowAnalysis {
+        java {
+            srcDir 'src/flow/java'
+        }
+    }
+}
+
+compileTextProcessorJava {
+    dependsOn unpackData
+}
+
+// Creating this feature to isolate text-analyzer dependency
+java {
+    registerFeature('textProcessor') {
+        usingSourceSet(sourceSets.textProcessor)
+    }
+}
+
+dependencies {
+
+    // Subproject dependencies
+    implementation project(path: ':Lasso:semantic-vectors', configuration: 'shadow')
+    implementation project(':seers-base')
+    implementation project(':java-callgraph')
+
+    implementation 'com.github.javaparser:javaparser-symbol-solver-core:3.15.17'
+
+    //textProcessorImplementation 'seers:text-analyzer:1.2'
+    //textProcessorImplementation group: 'com.opencsv', name: 'opencsv', version: '5.1'
+
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+    implementation group: 'com.google.guava', name: 'guava', version: '30.1.1-jre'
+
+    // https://mvnrepository.com/artifact/org.apache.lucene/lucene-core
+    implementation group: 'org.apache.lucene', name: 'lucene-core', version: '8.6.3'
+
+    // WALA 1.5.3
+    // Use https://github.com/SEERS-UTD/WALA/tree/custom-base-pointer as a subproject and submodule
+    // Need these three modules plus testdata
+    // Also remember moving buildSrc from WALA to top level project
+//    flowAnalysisImplementation project(':WALA:com.ibm.wala.core')
+//    flowAnalysisImplementation project(':WALA:com.ibm.wala.shrike')
+//    flowAnalysisImplementation project(':WALA:com.ibm.wala.util')
+
+    // TESTING
+
+    testImplementation("org.assertj:assertj-core:3.11.1")
+    testImplementation group: 'junit', name: 'junit', version: '4.+'
+
+    // https://mvnrepository.com/artifact/pl.pragmatists/JUnitParams
+    testImplementation group: 'pl.pragmatists', name: 'JUnitParams', version: '1.1.1'
+
+    testImplementation project(':seers-base')
+}
+
+if (project.hasProperty('mainClass')) {
+    // Use -PmainClass=my.class to override
+    mainClassName = project.getProperty('mainClass')
+} else {
+    // use a default
+    mainClassName = "edu.utdallas.seers.lasso.experiment.ConstraintTracingEvaluator"
+}
+
+// Use --args to pass arguments to the run task
+application {
+    // Use -PjvmArgs="-Xsomething ..." to override
+    if (project.hasProperty('jvmArgs')) {
+        applicationDefaultJvmArgs = Arrays.asList project.getProperty('jvmArgs').split()
+    } else {
+        applicationDefaultJvmArgs = ['-ea', '-Xms1g', '-Xmx2g']
+    }
+}
+
+

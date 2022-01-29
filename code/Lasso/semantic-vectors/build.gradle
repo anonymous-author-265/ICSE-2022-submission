@@ -1,0 +1,23 @@
+// This subproject exists to shadow SV's lucene dependency so that it doesn't interfere with the
+// Lucene version that Lasso uses
+
+plugins {
+    id 'java-library'
+    id 'com.github.johnrengelman.shadow' version '6.1.0'
+}
+
+shadowJar {
+    relocate 'org.apache.lucene', 'org.lucene_660_shaded.apache.lucene'
+    // So that lucene can find its codec files
+    mergeServiceFiles()
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies    {
+    // https://mvnrepository.com/artifact/pitt.search/semanticvectors
+    api group: 'pitt.search', name: 'semanticvectors', version: '5.8'
+}

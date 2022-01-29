@@ -1,0 +1,7 @@
+System,Constraint ID,Constraint,Enforcing Statement(s),Other LoC 1,Other LoC 2,Pattern,Constraint Type,Part 1,Part 2,Part 3,Ground Truth Type,Comments
+sample,sample-6,None,Lasso/sample/src/main/java/sample/LongConstant.java:5,,,constant-argument,value-comparison,sample.LongConstant#methodTwo,-12219292800000L,,explicit,
+sample,sample-1,None,Lasso/sample/src/main/java/sample/SampleClass.java:12,,,binary-comparison,value-comparison,sample.SampleClass#intMember,lt,sample.SampleClass#INT_CONSTANT=10,explicit,
+sample,sample-2,None,Lasso/sample/src/main/java/sample/argouml81/GetterSetter.java:8-14,,,if-chain,value-comparison,sample.argouml81.GetterSetter#set#value,,,explicit,
+sample,sample-3,None,Lasso/sample/src/main/java/sample/swarm52/Pick.java:28-36,,,if-chain,value-comparison,sample.swarm52.Node#getTextContent,,,explicit,
+sample,sample-4,None,Lasso/sample/src/main/java/sample/innerclasslistener/CustomCheckBox.java:25,,,boolean-property,value-comparison,sample.innerclasslistener.CustomCheckBox#booleanProperty,,,explicit,
+sample,sample-5,None,Lasso/sample/NullEmptyVariations.java:8,,,null-empty-check,value-comparison,sample.NullEmptyVariations#property,,,explicit,

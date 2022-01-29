@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Directory where this script is located
+this_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+if [ -z "$1" ]; then
+    echo "Please provide a path to save the results"
+    exit 1
+fi
+
+abs_dest=`readlink -m $1`
+
+cache_dir="$abs_dest/cache"
+
+# So that tee doesn't fail if the dir doesn't exist
+mkdir -p "$abs_dest"
+
+./gradlew run \
+  --args="$this_dir/../pattern-coding/traced-constraints.csv $this_dir/../data $abs_dest -c $cache_dir -i" \
+  -PjvmArgs="-ea -Xms1g -Xmx8g" \
+  -PmainClass="edu.utdallas.seers.lasso.experiment.ConstraintTracingEvaluator" \
+  2>&1 \
+  | tee "$abs_dest/evaluation.log"
