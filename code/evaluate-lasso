@@ -16,7 +16,7 @@ cache_dir="$abs_dest/cache"
 mkdir -p "$abs_dest"
 
 ./gradlew run \
-  --args="$this_dir/../data/constraints.csv $this_dir/../data/target-system-data $abs_dest -c $cache_dir" \
+  --args="$this_dir/../data/constraints.csv $this_dir/../data/target-system-data $abs_dest -c $cache_dir -C" \
   -PjvmArgs="-Xmx8g" \
   -PmainClass="edu.utdallas.seers.lasso.experiment.ConstraintTracingEvaluator" \
   2>&1 \

@@ -28,7 +28,7 @@
 
 1. **Configuration**: The input (or input + dimension in the case of LSI) that was tested.
 
-2. **Average Method Rank**: average *method rank* only for constraint where the ground truth was retrieved.
+2. **Average Method Rank**: average *method rank* only for the constraint where the ground truth was retrieved.
 
 3. **%HIT@N, HIT@N**: percentage and number of constraints where the ground truth was retrieved in position <= N.
 
