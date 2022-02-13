@@ -6,7 +6,7 @@
 
 ### Columns
 
-1. **Technique**: The Lasso-13 variation (Lasso-13Luc, Lasso-13TF-IDF, or Lasso13LSI) or baseline (Lucene, TF-IDF, LSI) that produced the result.
+1. **Technique**: The Lasso-13 variation (Lasso-13Luc, Lasso-13VSM, or Lasso13LSI) or baseline (Lucene, VSM, LSI) that produced the result.
 
 2. **Project, Constraint ID, Data Set**: Constraint identification.
 
@@ -24,6 +24,8 @@
 
 9. **Reciprocal Rank**: 1 divided by method rank if ground truth was retrieved, 0 otherwise.
 
+10. **Data Set**: data set that the constraint belongs to.
+
 ## Summary
 
 [results-summary.csv](./results-summary.csv) contains the aggregated results for each technique evaluated on each data set.
@@ -39,3 +41,5 @@
 4. **Average Recall**: recall averaged over all constraints.
 
 5. **MRR**: *reciprocal rank* averaged over all constraints.
+
+6. **Data Set**: data set that the results are aggregated over.
