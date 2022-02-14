@@ -20,4 +20,4 @@ In this paper, we introduce Lasso, the first technique that automatically retrie
 
 ## Extending Lasso and Expanding the Data Set
 
-We designed the code of our tool to be flexible, so that it can both be extended to provide additional functionality, and also can seamlessly be used with new data. Please see the README files for the [code](./code/README.md) and [data](./data/README.md) for instructions on how to extend Lasso and how to expand the data set, respectively.
+We designed the code of our tool to be flexible, so that it can both be extended to provide additional functionality, and also can be seamlessly used with new data. Please see the README files for the [code](./code/README.md) and [data](./data/README.md) for instructions on how to extend Lasso and how to expand the data set, respectively.
