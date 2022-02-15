@@ -90,6 +90,10 @@ public class LSIIndexBuilder extends BaselineIndexBuilder {
 
             logger.info("Creating new index at {}", indexPath);
 
+            if (Files.exists(indexPath)) {
+                edu.utdallas.seers.file.Files.deleteRecursively(indexPath);
+            }
+
             var stopWordsFile = getTempFilePath("seers-LSI-stop-words.tmp");
             Files.write(stopWordsFile, Preprocessing.loadStandardStopWords());
             createDirectories(indexPath);
@@ -172,3 +176,4 @@ public class LSIIndexBuilder extends BaselineIndexBuilder {
         }
     }
 }
+
