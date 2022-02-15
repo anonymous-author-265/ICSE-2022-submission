@@ -8,7 +8,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-abs_dest="$1"
+abs_dest="$(readlink -f $1)"
 
 cache_dir="$abs_dest/cache"
 
