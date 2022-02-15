@@ -23,7 +23,7 @@
 
 Both source code artifacts (`doc-txt.zip`) and source code (`sources.zip`) of each system are found in each directory.
 
-Each directory also contains an `exclude.txt` file, which signals to Lasso which directories contain test files ans should be ignored.
+Each directory also contains an `exclude.txt` file, which signals to Lasso which directories contain test files and should be ignored.
 
 ## Expanding the Data Set
 
@@ -44,6 +44,7 @@ In a directory of your choice (for example `new-data-set`), create one directory
         ├─ system-2/
         │  ├─ exclude.txt
         │  ├─ sources/
+        ├─ ...
         
 ### Constraints
 
@@ -66,6 +67,14 @@ In a directory of your choice, create a CSV file (for example, `new-constraints.
 - **Operands**: Comma-separated list of operands. The number of operands must be appropriate for each constraint type. See the study description for more details.
 
 - **Data Set**: Optional data set identifier for each constraint. It will be output verbatim with the result of each constraint.
+
+### Using Lasso with the New Data
+
+To use Lasso on the new data, supply the constraints and system source code to the tool. For example:
+
+        ./gradlew run --args="./new-constraints.csv ./new-data-set ./lasso-results"
+        
+See the corresponding [readme](../code/README.md) for more details.
 
 ## References
 

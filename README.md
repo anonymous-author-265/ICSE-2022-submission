@@ -8,15 +8,15 @@ In this paper, we introduce Lasso, the first technique that automatically retrie
 
 ## Contents
 
-1. [baseline-calibration](./baseline-calibration): Results of calibration tests for baselines. We evaluated the best constraint input for Lucene and LSI, and additionally the dimension parameter for LSI.
+1. [baseline-calibration](./baseline-calibration): Results of calibration tests for baselines. We evaluated the best constraint input for Lucene and LSI, and additionally the dimension parameter for LSI. See [the readme](./baseline-calibration/README.md) for more details.
 
-2. [code](./code): Extensible source code of the Lasso tool.
+2. [code](./code): Extensible source code of the Lasso tool. See [the readme](./code/README.md) for more details.
 
-3. [data](./data): Source code, textual artifacts, and 299 constraints for the 15 target systems used as objects of the study in the paper.
+3. [data](./data): Source code, textual artifacts, and 299 constraints for the 15 target systems used as objects of the study in the paper. See [the readme](./data/README.md) for more details.
 
 4. [misc](./misc): Contains the list of stopwords used by both Lasso-13 instances for preprocessing the textual fields of constraints and enforcing statement candidates. These stop words can also be found in the source code of Lasso.
 
-4. [results](./results): Full study results.
+4. [results](./results): Full study results. See [the readme](./results/README.md) for more details.
 
 ## Extending Lasso and Expanding the Data Set
 
