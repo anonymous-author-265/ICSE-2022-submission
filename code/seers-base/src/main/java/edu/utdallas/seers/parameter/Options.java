@@ -68,6 +68,7 @@ public class Options {
         public ArgumentBuilder addIgnoreCacheOption() {
             return addAction(
                     new StoreTrueSilent(options::setIgnoreCache),
+                    "Ignores and rebuilds any existing caches",
                     "-C", "--ignore-cache"
             );
         }
@@ -75,6 +76,7 @@ public class Options {
         public ArgumentBuilder addCachePathOption() {
             return addAction(
                     new StorePath(options::setCachePath),
+                    "The path where the cache should be stored",
                     "-c", "--cache-path"
             );
         }
@@ -89,6 +91,7 @@ public class Options {
                             i -> i > 0,
                             "Hits at k ranks must be > 0"
                     ),
+                    "Ranks for the %HITS@N metric that will be used for the evaluation",
                     "-k", "--hits-at-k-ranks"
             );
         }
@@ -97,17 +100,19 @@ public class Options {
             return parser;
         }
 
-        private ArgumentBuilder addAction(String nargs, ArgumentAction action, String... flags) {
+        private ArgumentBuilder addAction(String nargs, ArgumentAction action, String help, String... flags) {
             parser.addArgument(flags)
                     .action(action)
-                    .nargs(nargs);
+                    .nargs(nargs)
+                    .help(help);
 
             return this;
         }
 
-        private ArgumentBuilder addAction(ArgumentAction action, String... flags) {
+        private ArgumentBuilder addAction(ArgumentAction action, String help, String... flags) {
             parser.addArgument(flags)
-                    .action(action);
+                    .action(action)
+                    .help(help);
 
             return this;
         }

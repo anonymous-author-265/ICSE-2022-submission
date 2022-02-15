@@ -26,7 +26,6 @@ public enum PatternType {
     static {
         // Checking that the matchers were correctly set
         var matchers = values();
-        assert matchers.length == 13;
         for (PatternType value : matchers) {
             assert value.equals(value.matcher.getPatternType());
         }

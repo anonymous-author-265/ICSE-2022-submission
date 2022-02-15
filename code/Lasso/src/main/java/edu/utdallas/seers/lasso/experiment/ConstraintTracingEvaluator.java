@@ -10,7 +10,6 @@ import edu.utdallas.seers.lasso.retrieval.*;
 import edu.utdallas.seers.lasso.utils.LineContextExtractor;
 import edu.utdallas.seers.parameter.Options;
 import edu.utdallas.seers.retrieval.AggregatedRetrievalEvaluation;
-import edu.utdallas.seers.retrieval.RetrievalResult;
 import net.sourceforge.argparse4j.impl.action.StoreTrueArgumentAction;
 import net.sourceforge.argparse4j.inf.ArgumentParserException;
 import net.sourceforge.argparse4j.inf.Namespace;
@@ -22,16 +21,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static edu.utdallas.seers.collection.Collections.streamMap;
 import static org.jooq.lambda.tuple.Tuple.tuple;
 
 public class ConstraintTracingEvaluator {
@@ -78,16 +76,17 @@ public class ConstraintTracingEvaluator {
                 .build();
 
         parser.addArgument("constraints_file")
-                .help("CSV file with constraints");
+                .help("CSV file containing constraint inputs");
 
         parser.addArgument("sources_dir")
                 .help("Directory with source code of target systems");
 
         parser.addArgument("output_path")
-                .help("CSV to store evaluation results");
+                .help("Directory to store evaluation results");
 
         parser.addArgument("-i", "--write-individual")
-                .action(new StoreTrueArgumentAction());
+                .action(new StoreTrueArgumentAction())
+                .help("If provided, the result list for each constraint will be printed");
 
         Namespace namespace;
         try {
@@ -103,12 +102,12 @@ public class ConstraintTracingEvaluator {
     private void runExperiment() throws IOException {
         var byConstraintFile = outputPath.resolve("results-all.csv");
         Path byScenarioPath = outputPath.resolve("results-summary.csv");
-        Path samplePath = outputPath.resolve("01-sample.csv");
-        Path sampleSourcePath = outputPath.resolve("01-sample-source.txt");
+        Path samplePath = outputPath.resolve("individual-results.csv");
+//        Path sampleSourcePath = outputPath.resolve("01-sample-source.txt");
         try (var byConstraintWriter = CSVWriter.<ConstraintEvaluation>create(byConstraintFile);
              var byScenarioWriter = CSVWriter.<AggregatedEvaluation>create(byScenarioPath);
-             var sampleWriter = CSVWriter.<IndividualResult>create(samplePath);
-             var sampleSourceWriter = new PrintWriter(Files.newBufferedWriter(sampleSourcePath))) {
+             var sampleWriter = CSVWriter.<IndividualResult>create(samplePath)) {
+//             var sampleSourceWriter = new PrintWriter(Files.newBufferedWriter(sampleSourcePath))) {
             var scenarios = new ConstraintLoader().loadGrouped(constraintsFile)
                     .sorted()
                     .flatMap(this::generateScenarios)
@@ -116,7 +115,7 @@ public class ConstraintTracingEvaluator {
 
             scenarios.parallelStream()
                     .map(this::evaluateScenario)
-                    .peek(Unchecked.consumer(es -> writeIndividual(sampleWriter, es, sampleSourceWriter)))
+                    .peek(Unchecked.consumer(es -> writeIndividual(sampleWriter, es)))
                     .peek(es -> byConstraintWriter.writeRows(es.stream()
                             .map(ConstraintEvaluation::new)))
                     .map(es -> tuple(
@@ -172,7 +171,7 @@ public class ConstraintTracingEvaluator {
                 .collect(Collectors.toList());
     }
 
-    private void writeIndividual(CSVWriter<IndividualResult> writer, List<LassoEvaluation> evaluations, PrintWriter sampleSourceWriter) {
+    private void writeIndividual(CSVWriter<IndividualResult> writer, List<LassoEvaluation> evaluations) {
         if (!writeIndividual) {
             return;
         }
@@ -189,33 +188,33 @@ public class ConstraintTracingEvaluator {
             if (INDIVIDUAL_OUT_ONLY_GT_RESULT) {
                 results = gt;
             } else {
-                var topN = evaluation.getResults().clusteredItems().limit(10);
+                var topN = evaluation.getResults().clusteredItems();
                 results = Stream.concat(topN, gt);
             }
             writer.writeRows(results
-                    // In case the GT is in top n
-                    .distinct()
-                    .sorted(Comparator.comparing(r -> r.rank))
-                    .peek(g -> {
-                                // TODO groups currently contain only a single constraint
-                                var result = g.results.get(0);
-                                List<LassoResult> patterns;
-                                if (!result.getStats().groupedResults.isEmpty()) {
-                                    patterns = result.getStats().groupedResults;
-                                } else {
-                                    patterns = Collections.singletonList(result);
-                                }
-                                lineExtractor.extractFor(
-                                        project,
-                                        String.format("%s_%sR%d", key.getConfiguration().toString(), constraintID, g.rank),
-                                        patterns.stream()
-                                                .map(RetrievalResult::getResult)
-                                                .collect(Collectors.toList())
-                                )
-                                        .forEachOrdered(sampleSourceWriter::println);
-                            }
-                    )
-                    .map(r -> new IndividualResult(r, project, gtRank, constraintID, key))
+                            // In case the GT is in top n
+                            .distinct()
+                            .sorted(Comparator.comparing(r -> r.rank))
+//                    .peek(g -> {
+//                                // TODO groups currently contain only a single constraint
+//                                var result = g.results.get(0);
+//                                List<LassoResult> patterns;
+//                                if (!result.getStats().groupedResults.isEmpty()) {
+//                                    patterns = result.getStats().groupedResults;
+//                                } else {
+//                                    patterns = Collections.singletonList(result);
+//                                }
+//                                lineExtractor.extractFor(
+//                                        project,
+//                                        String.format("%s_%sR%d", key.getConfiguration().toString(), constraintID, g.rank),
+//                                        patterns.stream()
+//                                                .map(RetrievalResult::getResult)
+//                                                .collect(Collectors.toList())
+//                                )
+//                                        .forEachOrdered(sampleSourceWriter::println);
+//                            }
+//                    )
+                            .map(r -> new IndividualResult(r, project, gtRank, constraintID, key))
             );
         }
     }
@@ -279,11 +278,11 @@ public class ConstraintTracingEvaluator {
         private final MultiValuedMap<String, Integer> hits = new ArrayListValuedHashMap<>();
 
         // Other stats
-        @CsvBindByName(column = "Method group: rank")
+        @CsvBindByName(column = "Method Rank")
         private final String rankInMethod;
-        @CsvBindByName(column = "Method group: size")
+        @CsvBindByName(column = "ESCs in GT Method")
         private final String gtGroupSize;
-        @CsvBindByName(column = "Method group: ESC ranks")
+        @CsvBindByName(column = "ESC ranks in GT method")
         private final String gtESCRanks;
 
         public ConstraintEvaluation(LassoEvaluation evaluation) {
@@ -327,13 +326,15 @@ public class ConstraintTracingEvaluator {
     public static class IndividualResult {
 
         @CsvBindByName
-        private final String id;
+        private final String result;
+        @CsvBindByName
+        private final String technique;
         @CsvBindByName
         private final int rank;
         @CsvBindByName
         private final float score;
-        @CsvBindByName
-        private final String termLocations;
+        //        @CsvBindByName
+//        private final String termLocations;
         @CsvBindByName
         private final String project;
         @CsvBindByName(column = "Is GT?")
@@ -341,46 +342,47 @@ public class ConstraintTracingEvaluator {
         @CsvBindByName
         private final String constraint;
         @CsvBindByName
-        private final String scoreComps;
-        @CsvBindByName
-        private final String groupedResults;
+        private final String decomposedScore;
+//        @CsvBindByName
+//        private final String groupedResults;
 
         public IndividualResult(LassoResultCollection.ResultGroup cluster, String project, int gtRank, String constraintID, LassoScenarioID key) {
+            technique = key.getConfiguration().toString();
             var result = cluster.results.get(0);
             constraint = constraintID;
-            id = result.getResult().getID();
+            this.result = result.getResult().getID();
             this.project = project;
             this.rank = cluster.rank;
             score = result.getScore();
             isGT = result.getRank() == gtRank;
-            scoreComps = result.getDecomposedScore().repr();
-            termLocations = streamMap(result.getStats().qtLocations)
-                    .filter((t, ls) -> !ls.isEmpty())
-                    .combine((t, ls) -> t + ":" + ls.stream().map(Object::toString).collect(Collectors.joining(", ")))
-                    .collect(Collectors.joining("\n"));
-            var group = result.getStats().groupedResults;
-            var methodGranularity = Optional.of(key.getConfiguration()).filter(c -> c instanceof LassoConfig)
-                    .map(c -> (LassoConfig) c)
-                    .map(c -> c.methodGranularity)
-                    .orElse(false);
-            if (LassoIndex.BASELINE_ORDER || methodGranularity) {
-                groupedResults = Optional.of(group)
-                        .filter(g -> !g.isEmpty())
-                        .map(g -> g.stream()
-                                .map(r -> String.format("%s:%d,%d - %s",
-                                        r.getResult().getPatternType(),
-                                        r.getResult().location.range.begin.line,
-                                        r.getResult().location.range.begin.column,
-                                        r.getDecomposedScore().repr()))
-                                .collect(Collectors.joining("\n")))
-                        .orElse("");
-            } else {
-                this.groupedResults = cluster.results.stream()
-                        .limit(20)
-                        .map(r -> r.getResult().getID())
-                        .collect(Collectors.joining("\n"))
-                        + (cluster.results.size() > 20 ? "\n..." : "");
-            }
+            decomposedScore = result.getDecomposedScore().repr();
+//            termLocations = streamMap(result.getStats().qtLocations)
+//                    .filter((t, ls) -> !ls.isEmpty())
+//                    .combine((t, ls) -> t + ":" + ls.stream().map(Object::toString).collect(Collectors.joining(", ")))
+//                    .collect(Collectors.joining("\n"));
+//            var group = result.getStats().groupedResults;
+//            var methodGranularity = Optional.of(key.getConfiguration()).filter(c -> c instanceof LassoConfig)
+//                    .map(c -> (LassoConfig) c)
+//                    .map(c -> c.methodGranularity)
+//                    .orElse(false);
+//            if (LassoIndex.BASELINE_ORDER || methodGranularity) {
+//                groupedResults = Optional.of(group)
+//                        .filter(g -> !g.isEmpty())
+//                        .map(g -> g.stream()
+//                                .map(r -> String.format("%s:%d,%d - %s",
+//                                        r.getResult().getPatternType(),
+//                                        r.getResult().location.range.begin.line,
+//                                        r.getResult().location.range.begin.column,
+//                                        r.getDecomposedScore().repr()))
+//                                .collect(Collectors.joining("\n")))
+//                        .orElse("");
+//            } else {
+//                this.groupedResults = cluster.results.stream()
+//                        .limit(20)
+//                        .map(r -> r.getResult().getID())
+//                        .collect(Collectors.joining("\n"))
+//                        + (cluster.results.size() > 20 ? "\n..." : "");
+//            }
         }
     }
 }
